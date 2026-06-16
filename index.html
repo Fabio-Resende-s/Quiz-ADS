@@ -1,38 +1,42 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Quiz ADS - Fábio Resende</title>
-
-<link rel="stylesheet" href="style.css">
-
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz ADS - Fábio Resende</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-    
+  <div class="container">
 
-<div class="container">
+    <h1>📚 Quiz ADS</h1>
+    <h2>Escolha uma matéria</h2>
 
-<h1>📚 Quiz ADS</h1>
+    <div class="materias">
+      <button onclick="abrirMateria('redes')">🌐 Fundamentos de Redes de Computadores</button>
+      <button onclick="abrirMateria('programacao')">💻 Introdução à Programação de Computadores</button>
+    </div>
 
-<div id="contador"></div>
+    <!-- Área do quiz -->
+    <div id="quiz-area" style="display: none;">
+      <h2 id="nome-materia"></h2>
+      <div id="contador"></div>
+      <div class="pergunta" id="pergunta"></div>
+      <div id="opcoes"></div>
+      <div id="resultado">
+        <h3 id="mensagem"></h3>
+        <p id="explicacao"></p>
+      </div>
+      <div class="botoes-acoes">
+        <button onclick="proximaPergunta()">➡️ Próxima</button>
+        <button onclick="voltarMenu()" class="voltar">🔙 Voltar</button>
+      </div>
+    </div>
 
-<div class="pergunta" id="pergunta"></div>
+  </div>
 
-<div id="opcoes"></div>
+  <script src="script.js"></script>
 
-<div id="resultado">
-    <h3 id="mensagem"></h3>
-    <p id="explicacao"></p>
-</div>
-
-<button onclick="proximaPergunta()">Próxima Pergunta</button>
-
-</div>
-
-
-<script src="script.js"></script>
 </body>
 </html>
