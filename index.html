@@ -16,23 +16,48 @@
     <div class="materias">
       <button onclick="abrirMateria('redes')">🌐 Fundamentos de Redes de Computadores</button>
       <button onclick="abrirMateria('programacao')">💻 Introdução à Programação de Computadores</button>
+      <button onclick="abrirMateria('matematica-logica')">🧮 Matemática e Lógica</button>
     </div>
 
-    <!-- Área do quiz -->
+    <!-- ========================================================== -->
+    <!-- ÁREA DO QUIZ (APENAS UMA VEZ!) -->
+    <!-- ========================================================== -->
     <div id="quiz-area" style="display: none;">
-      <h2 id="nome-materia"></h2>
-      <div id="contador"></div>
-      <div class="pergunta" id="pergunta"></div>
-      <div id="opcoes"></div>
-      <div id="resultado">
-        <h3 id="mensagem"></h3>
-        <p id="explicacao"></p>
+
+      <!-- CABEÇALHO -->
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+        <button onclick="voltarMenu()" class="btn-voltar">← Voltar</button>
+        <span id="nome-materia" style="font-weight:bold; font-size:18px;"></span>
+        <span id="contador" style="font-weight:bold; color:#f5e56b;"></span>
       </div>
-      <div class="botoes-acoes">
-        <button onclick="proximaPergunta()">➡️ Próxima</button>
-        <button onclick="voltarMenu()" class="voltar">🔙 Voltar</button>
+
+      <!-- PERGUNTA PRINCIPAL -->
+      <p id="pergunta" style="font-size:18px; font-weight:bold; margin-bottom:15px;"></p>
+
+      <!-- IMAGEM (se houver) -->
+      <div id="imagem-container" style="display:none; text-align:center; margin:10px 0;"></div>
+
+      <!-- PERGUNTA 2 (texto após a imagem) -->
+      <p id="pergunta2" style="display:none; font-size:18px; font-weight:bold; margin-top:10px;"></p>
+
+      <!-- OPÇÕES -->
+      <div id="opcoes" style="display:flex; flex-direction:column; gap:10px; margin-top:15px;"></div>
+
+      <!-- BOTÃO PRÓXIMA / PULAR (SEMPRE VISÍVEL) -->
+      <div style="margin-top:20px; text-align:center;">
+        <button onclick="proximaPergunta()" id="btn-proxima" class="btn-proxima">
+          ⏭️ Pular / Próxima
+        </button>
       </div>
+
+      <!-- RESULTADO (aparece depois de responder) -->
+      <div id="resultado" style="display:none; margin-top:20px; padding:15px; background-color:#1e2a3a; border-radius:10px;">
+        <p id="mensagem" style="font-weight:bold; font-size:18px;"></p>
+        <p id="explicacao" style="color:#b0c4de; margin-top:10px;"></p>
+      </div>
+
     </div>
+    <!-- ========================================================== -->
 
   </div>
 
