@@ -1,13 +1,966 @@
-// ============================================================
-// BASE DE DADOS DO QUIZ - CADA MATÉRIA COM SUAS PERGUNTAS
-// ============================================================
+  // =============================================================
+  //  BANCO DE DADOS: MATÉRIAS E PERGUNTAS
+  //  Adicione quantas matérias quiser, cada uma com seu array de perguntas.
+  // =============================================================
+  const materias = {
+    matematica: {
+      nome: "Matemática e lógica",
+      icone: "📐🧮",
+      descricao: "Métodos de demonstração, indução, lógica e mais.",
+      perguntas: [
 
-const questoes = {
-  redes: {
-    nome: "🌐 Fundamentos de Redes de Computadores",
-    perguntas: [
-      // SUAS PERGUNTAS AQUI (COPIEI TODAS AS 60+ QUE VOCÊ ENVIOU)
+         {
+materia:"Matemática - Métodos de Demonstração (Prova por Contradição)",
+pergunta:"Analisando a proposição: algum dia será possível criar um programa de computador que sempre vença o jogo no xadrez?\nI. Suponha, por um momento, que a seguinte proposição é válida: p = 'existe um programa de computador que sempre vence o jogo no xadrez'. Supondo que tal programa existe, instale a mesma cópia em dois computadores e coloque um para jogar contra o outro. O jogo terminará empatado (sem nenhum vencedor) ou um dos computadores perderá.\nPORQUE\nII. Em qualquer destes casos, pelo menos uma das duas cópias do programa não vai ganhar o jogo, uma contradição, já que assumimos que o programa sempre ganha. Portanto, não existe (nem nunca existirá) um programa que sempre vença o jogo no xadrez.\nA respeito da afirmação assinale a opção correta.",
+opcoes:[
+"a) As duas asserções são proposições verdadeiras, e a segunda é uma justificativa correta da primeira.",
+"b) As duas asserções são proposições verdadeiras, mas a segunda não é uma justificativa correta da primeira.",
+"c) A primeira asserção é uma proposição verdadeira, e a segunda é falsa.",
+"d) A primeira asserção é uma proposição falsa, e a segunda é verdadeira.",
+"e) Ambas as asserções são proposições falsas."
+],
+correta:0,
+explicacao:"A alternativa correta é a letra A. A primeira asserção é verdadeira, pois descreve corretamente o experimento mental (supor a existência do programa e fazer duas cópias jogarem entre si). A segunda asserção também é verdadeira, pois conclui logicamente que, em qualquer resultado (empate ou derrota), pelo menos uma cópia não vence, contradizendo a suposição inicial. Assim, a segunda justifica a primeira ao mostrar que a suposição leva a uma contradição, provando que tal programa não pode existir."
+},
+
       {
+materia:"Matemática - Lógica de Predicados (Prolog)",
+pergunta:"Durante uma aula de lógica no curso de Introdução à Computação, o professor decide utilizar exemplos do dia a dia para explicar conceitos de lógica de predicados, facilitando a compreensão dos estudantes. O professor escolhe dois alunos populares entre seus exemplos: Laura e Carlos. Marque a alternativa que indica corretamente a pergunta 'Será que Laura gosta de sorvete e Carlos gosta de torta?'",
+opcoes:[
+"a) ? - gosta(sorvete, laura) e gosta(torta, carlos)",
+"b) gosta(laura, sorvete), gosta(carlos, torta)?",
+"c) ? - gosta(laura, sorvete), gosta(carlos, torta)",
+"d) ? - gosta(laura, sorvete) ou gosta(carlos, torta)",
+"e) gosta(laura, sorvete), (carlos, torta)?"
+],
+correta:2,
+explicacao:"A alternativa correta é a letra C. Em Prolog, uma consulta é iniciada com '?-' seguida dos objetivos separados por vírgula (que representa a conjunção 'e'). Os predicados e argumentos devem começar com letras minúsculas. Portanto, a forma correta é: ?- gosta(laura, sorvete), gosta(carlos, torta)."
+},
+
+
+
+      {
+materia:"Matemática - Métodos de Demonstração",
+pergunta:"10. Se n = a.b, com a e b inteiros positivos, então a ≤ √n ou b ≤ √n. Nesse contexto, analise as afirmações a seguir de tal forma que seja possível demonstrar que tal proposição é verdadeira.\n I. Suponhamos que n = a.b e a > √n e b > √n.\nII. Vamos analisar a.b. a.b > √n · √n = (√n)² = n o que contradiz a hipótese.\nIII. Portanto, se n = a.b, com a e b inteiros positivos, então a ≤ √n ou b ≤ √n.\nÉ correto o que se afirma em:",
+opcoes:[
+"a) I apenas.",
+"b) II e III apenas.",
+"c) I e II apenas.",
+"d) I e III apenas.",
+"e) I, II e III."
+],
+correta:4,
+explicacao:"A alternativa correta é a letra E. A afirmativa I é verdadeira, pois inicia corretamente uma prova por contradição, negando a tese (a > √n e b > √n). A afirmativa II é verdadeira, pois ao multiplicar as desigualdades, obtemos a.b > √n · √n = n, contradizendo a hipótese de que n = a.b. A afirmativa III é verdadeira, pois conclui corretamente a tese após a contradição. Portanto, I, II e III estão corretas."
+},
+      
+      {
+materia:"Matemática - Métodos de Demonstração",
+pergunta:"09. Analisando a declaração: Demonstre que √2 é um número irracional, feita por um estudante de métodos de demonstração, ele assim escreveu:\nI. Demonstração. Suponha, por absurdo, que √2 é racional. Desta forma, seria possível encontrar números inteiros a, b, com b ≠ 0, tais que √2 poderia ser representado como fração irredutível a/b.\nPORQUE\nII. A partir disto, podemos afirmar que: 2 = (√2)² = (a/b)² = a²/b² → 2b² = a². Assim, temos que a² é par e, desta forma, a também é par. Como a é par, a = 2k para algum inteiro k. Logo: 2b² = a² = (2k)² = 4k² → b² = 2k². O que nos diz que b também é par. Mas isto é uma contradição, pois se a e b são pares, a fração irredutível a/b poderia ser reduzida, um absurdo. Logo, podemos concluir que o número não pode ser racional, e sim irracional.\nA respeito da afirmação feita pelo estudante, assinale a opção correta.",
+opcoes:[
+"a) As asserções I e II são proposições verdadeiras, e a II é uma justificativa da I.",
+"b) As asserções I e II são proposições verdadeiras, mas a II não é uma justificativa da I.",
+"c) A asserção I é uma proposição verdadeira, e a II é uma proposição falsa.",
+"d) A asserção I é uma proposição falsa, e a II é uma proposição verdadeira.",
+"e) As asserções I e II são proposições falsas."
+],
+correta:0,
+explicacao:"A alternativa correta é a letra A. A resposta certa é: As asserções I e Il são proposições verdadeiras, e a II é uma justificativa da l. Na asserção I, o estudante define a suposição inicial da sua prova por contradição: ele assume que v2 é um número racional e que pode ser expresso como uma fração irredutivel a/b. Isso é uma preparação para o argumento que ele esta prestes a fazer e e uma estrategia valida para iniciar uma prova por contradicão. Na asserção II, o estudante apresenta sua justificativa para essa suposição ser falsa. Ele desenvolve um argumento lógico, que começa com a suposição da asserção I e, através de uma série de manipulações matemáticas válidas, chega a uma contradição, o que significa que a suposição inicial (de que v2 é um número racional) deve ser falsa. Portanto, a opção correta é: As asserções I e II são proposições verdadeiras, e a II é uma justificativa da l.",
+},
+      {
+materia:"Matemática - Métodos de Demonstração",
+pergunta:"08. Analisando a proposição 'Cada número racional não zero pode ser escrito como produto de dois números irracionais', um estudante de Métodos de Demonstração assim escreveu:\nI. Faça a ∈ Q.\nPORQUE\nII. então podemos escrever a como um produto de dois irracionais √2 · a/√2 = a, onde a/√2 é irracional e a é racional.\nA respeito da afirmação feita pelo estudante, assinale a opção correta.",
+opcoes:[
+"a) As duas asserções são proposições verdadeiras, e a segunda é uma justificativa correta da primeira.",
+"b) As duas asserções são proposições verdadeiras, mas a segunda não é uma justificativa correta da primeira.",
+"c) A primeira asserção é uma proposição verdadeira, e a segunda é falsa.",
+"d) A primeira asserção é uma proposição falsa, e a segunda é verdadeira.",
+"e) Ambas as asserções são proposições falsas."
+],
+correta:0,
+explicacao:"A alternativa correta é a letra A. A asserção I é verdadeira (a ∈ Q é uma suposição válida). A asserção II é verdadeira e justifica corretamente a primeira, pois mostra que qualquer racional não nulo a pode ser escrito como produto de dois irracionais (√2 e a/√2, sendo este último irracional)."
+},
+
+      {
+materia:"Matemática - Métodos de Demonstração",
+pergunta:"07. Se um inteiro é divisível por 6, então duas vezes esse inteiro é divisível por 4. Nesse contexto, analise as afirmações a seguir de tal forma que seja possível demonstrar que tal proposição é verdadeira.\nI. Suponhamos que n é um inteiro divisível por 6, isto é, n = 6q, para algum inteiro q.\nII. Vamos analisar o dobro do número n.\nIII. Logo: 2n = 2(6q) = 12q = 4(3q) = 4k, onde k = 3q é um inteiro.\nÉ correto o que se afirma em:",
+opcoes:[
+"a) I, apenas.",
+"b) II e III apenas.",
+"c) I e II apenas.",
+"d) I e III apenas.",
+"e) I, II e III."
+],
+correta:4,
+explicacao:"A alternativa correta é a letra E. A afirmativa I é verdadeira, pois inicia a demonstração supondo corretamente que n é divisível por 6 (n = 6q). A afirmativa II é verdadeira, pois analisar o dobro de n é o próximo passo lógico. A afirmativa III é verdadeira, pois mostra corretamente que 2n = 12q = 4(3q), ou seja, 2n é divisível por 4. Portanto, todas as três afirmações são verdadeiras e necessárias para a demonstração."
+},
+
+      {
+materia:"Matemática - Métodos de Demonstração",
+pergunta:"06. Analisando a proposição: se n é um número inteiro par, então n² é par.\nSuponhamos que n é par, isto é, n = 2k para algum inteiro k.\nPORQUE\nn² = (2k)² = 4k² = 2(2k²) = 2q, onde q = 2k² é um inteiro. Portanto, n² é par.\nA respeito da afirmação assinale a opção correta.",
+opcoes:[
+"a) As duas asserções são proposições verdadeiras, e a segunda é uma justificativa correta da primeira.",
+"b) As duas asserções são proposições verdadeiras, mas a segunda não é uma justificativa correta da primeira.",
+"c) A primeira asserção é uma proposição verdadeira, e a segunda é falsa.",
+"d) A primeira asserção é uma proposição falsa, e a segunda é verdadeira.",
+"e) Ambas as asserções são proposições falsas."
+],
+correta:0,
+explicacao:"A alternativa correta é a letra A. A proposição é verdadeira e a justificativa fornecida também é correta.Vamos analisar: A primeira asserçao afirma que se n e um numero inteiro par, entao n2 e par. Essa asserçao e verdadeira, pois quando n é par (n=2k), n2 é igual a 4k2, que é claramente um numero par. A segunda asserçao fornece uma justificativa para a primeira, mostrando que n2 pode ser representado na forma 2q, onde q e um inteiro. Isso demonstra que n2 é par. Portanto, a opção correta é: As duas asserções são proposições verdadeiras, e a segunda é uma justificativa correta da primeira."
+},
+
+      {
+materia:"Matemática - Métodos de Demonstração (Indução)",
+imagem:"./IMG/perguta.png",
+opcoes:[
+"a) As duas asserções são proposições verdadeiras, e a segunda é uma justificativa correta da primeira.",
+"b) As duas asserções são proposições verdadeiras, mas a segunda não é uma justificativa correta da primeira.",
+"c) A primeira asserção é uma proposição verdadeira, e a segunda é falsa.",
+"d) A primeira asserção é uma proposição falsa, e a segunda é verdadeira.",
+"e) Ambas as asserções são proposições falsas."
+],
+correta:0,
+explicacao:"A alternativa correta é a letra A. O estudante fez uma afirmação e, em seguida, justificou-a. A primeira afirmação é que para qualquer inteiro positivo, 6n-1 e divisivel por 5. A segunda afirmacao e a justificativa da primeira, onde ele usa um metodo de induçāo matemática para provar a primeira afirmaçao. Ele comeca com um caso base e, em seguida, assume que a afirmaçāo é verdadeira para um número k. Ele então mostra que se a afirmação ė verdadeira para k,entāo tambėm é verdadeira para k+1. Portanto, a alternativa correta é a A: ' As duas asserções são proposições verdadeiras, e a segunda e uma justificativa correta da primeira'."
+},
+
+      {
+materia:"Matemática - Métodos de Demonstração",
+pergunta:"04. Analisando a declaração: Demonstre que √2 é um número irracional; um estudante de métodos de demonstração assim escreveu:\nDemonstração. Suponha, por absurdo, que √2 é racional. Desta forma, seria possível encontrar números inteiros a, b, com b ≠ 0, tais que √2 poderia ser representado como fração irredutível a/b.\nPORQUE\nII. A partir disto, podemos afirmar que: 2 = (√2)² = (a/b)² = a²/b² → 2b² = a². Assim, temos que a² é par e, desta forma, a também é par. Como a é par, a = 2k para algum inteiro k. Logo: 2b² = a² = (2k)² = 4k² → b² = 2k². O que nos diz que b também é par. Mas isto é uma contradição, pois se a e b são pares, a fração irredutível a/b poderia ser reduzida, um absurdo. Logo, podemos concluir que o número não pode ser racional, e sim irracional.\nA respeito da afirmação feita pelo estudante, assinale a opção correta.",
+opcoes:[
+"a) Apenas um item está certo.",
+"b) Apenas os itens I, II e III estão certos.",
+"c) Apenas os itens II, III e IV estão certos.",
+"d) Todos os itens estão certos.",
+"e) Apenas dois itens estão certos."
+],
+correta:3,
+explicacao:"A alternativa correta é a letra D. A demonstração apresentada pelo estudante está correta, seguindo todos os passos da prova por contradição: supõe que √2 é racional, escreve como fração irredutível, eleva ao quadrado, conclui que a² é par, logo a é par, substitui a = 2k, obtém b² par, logo b é par, o que contradiz a fração ser irredutível. Portanto, todos os itens que compõem a demonstração estão corretos."
+},
+
+      {
+materia:"Matemática - Métodos de Demonstração (Números de Fermat)",
+pergunta:"03. Para qualquer inteiro positivo n, 2^(2^n) + 1 é primo. Nesse contexto, analise as afirmacoes a seguir de tal forma que seja possivel demonstrar que tal proposicao e verdadeira.",
+imagem:"./IMG/image9.png",
+opcoes:[
+"a) I, apenas.",
+"b) II e III apenas.",
+"c) I e III, apenas.",
+"d) I e II apenas.",
+"e) I, II e III."
+],
+correta:4,
+explicacao:"A alternativa correta é a letra E. Todas as afirmações são verdadeiras. I está correta ao afirmar que os quatro primeiros números de Fermat (n=1 a 4) são primos. II apresenta corretamente os valores para n=1, 2, 3 e 4. III também está correta ao mostrar que para n=5 o número não é primo (4294967297 = 641 × 6700417), servindo como contraexemplo para a proposição original. Portanto, I, II e III estão corretas."
+},
+
+      {
+materia:"Matemática - Métodos de Demonstração",
+pergunta:"02. Para entender melhor a relação entre n e n² sob a condição de que n ≤ 5, é crucial seguir uma série de passos lógicos que fundamentam a demonstração dessa inequação. Coloque em ordem a demonstração: se n ≤ 5, então n² ≤ 5n + 10.\nI. n ≤ 5\nII. n · n ≤ 5 · n\nIII. n² ≤ 5 · n + 0\nIV. Como 0 ≤ 10, podemos concluir que n² ≤ 5n + 0 ≤ 5n + 10.\nPortanto, se n ≤ 5, então n² ≤ 5n + 10.",
+opcoes:[
+"a) 4-3-2-1.",
+"b) 1-2-3-4.",
+"c) 2-3-4-1.",
+"d) 4-3-1-2.",
+"e) 1-2-4-3."
+],
+correta:1,
+explicacao:"A alternativa correta é a letra B. A ordem lógica correta é: I (premissa n ≤ 5), II (multiplica por n: n² ≤ 5n), III (escreve n² ≤ 5n + 0), IV (como 0 ≤ 10, conclui n² ≤ 5n + 0 ≤ 5n + 10). Portanto, 1-2-3-4."
+},
+
+      {
+materia:"Matemática - Métodos de Demonstração (Exaustão)",
+pergunta:"01. Na matemática, a demonstração por exaustão serve como uma ferramenta poderosa para validar proposições que abrangem um amplo conjunto de elementos, como os números inteiros. Considere que para todo m ∈ Z, m² ≥ m. Demonstrando por exaustão, julgue os itens a seguir:\nI. A demonstração será dividida em três diferentes. Note que 'Para todos x ∈ Z' também pode ser escrito como 'Para x ∈ Z' onde Z é o conjunto de inteiros: Z = { ... , -3, -2, -1, 0, 1, 2, 3, ... }. Consideramos os casos m ≥ 1, m = 0 e m ≤ -1 separadamente.\nII. Caso m ≥ 1: Podemos multiplicar ambos os lados dessa desigualdade por m e uma vez que m não afeta a direção da desigualdade e temos m² ≥ m como necessário para m ≥ 1.\nIII. Caso m = 0: Para m = 0, m e m² são ambos 0 e, assim, a desigualdade da afirmação, como também inclui igualdade, também vale para m = 0.\nIV. Caso m ≤ -1: Se m ≤ -1, ou seja, m é um número negativo, m² será um número positivo.\nV. e nós novamente temos que m² ≥ m como necessário aqui também. A declaração é verdadeira para todos os casos e, por isso, provamos isso por exaustão.",
+opcoes:[
+"a) Apenas I, II e III.",
+"b) Apenas I e III.",
+"c) Apenas IV e V.",
+"d) Apenas II, III e V.",
+"e) I, II, III, IV e V."
+],
+correta:4,
+explicacao:"A alternativa correta é a letra E. Todos os itens estão corretos. I divide corretamente os casos (m ≥ 1, m = 0, m ≤ -1). II está correto: para m ≥ 1, multiplicar por m mantém a desigualdade e obtemos m² ≥ m. III está correto: para m = 0, temos 0 ≥ 0. IV está correto: para m ≤ -1, m é negativo e m² é positivo, portanto m² ≥ m. V conclui corretamente que a proposição vale para todos os casos. Logo, I, II, III, IV e V são verdadeiros."
+},
+
+      {
+materia:"Matemática - Lógica de Programação (Prolog)",
+pergunta:"10. Com relação à Linguagem de Programação Prolog, marque a alternativa correta que indica a estrutura de um fato:",
+opcoes:[
+"a) gosta(Paula, Mario)",
+"b) gosta(paula, mario).",
+"c) gosta(Paula, mario)",
+"d) Gosta(Paula, Mario).",
+"e) Gosta(paula, mario)."
+],
+correta:1,
+explicacao:"A alternativa correta é a letra B. Em Prolog, fatos são escritos com o predicado e os argumentos começando com letras minúsculas (átomos) e terminam com ponto final. A opção B segue corretamente essa sintaxe: 'gosta(paula, mario).'."
+},
+
+      {
+materia:"Matemática - Lógica Proposicional (Quantificadores)",
+pergunta:"09. (ESAF - Analista - 2000) Dizer que a afirmação 'Todos os economistas são médicos' é falsa, do ponto de vista lógico, equivale a dizer que a seguinte afirmação é verdadeira:",
+opcoes:[
+"a) Nenhum economista é médico.",
+"b) Pelo menos um economista não é médico.",
+"c) Nenhum médico é economista.",
+"d) Pelo menos um médico não é economista.",
+"e) Todos os não-médicos são não-economistas."
+],
+correta:1,
+explicacao:"A alternativa correta é a letra B. A negação de uma proposição universal afirmativa 'Todo A é B' (∀x(A(x)→B(x))) é a proposição existencial negativa 'Existe A que não é B' (∃x(A(x)∧¬B(x))), que em linguagem corrente é 'Pelo menos um economista não é médico'."
+},
+
+      {
+materia:"Matemática - Lógica de Programação (Prolog)",
+pergunta:"08. Marque a alternativa correta que indica a estrutura de um fato:",
+opcoes:[
+"a) Come(Paula, chocolate)",
+"b) come(paula, chocolate).",
+"c) come(Paula, chocolate)",
+"d) come(Paula, Chocolate).",
+"e) Come(paula, chocolate)."
+],
+correta:1,
+explicacao:"A alternativa correta é a letra B. Em Prolog, fatos são escritos com o predicado e argumentos começando com letras minúsculas (átomos) e terminam com ponto final. A opção B segue corretamente essa sintaxe: 'come(paula, chocolate).'."
+},
+
+      {
+materia:"Matemática - Lógica Proposicional (Quantificadores)",
+pergunta:"07. Considere o argumento 'A multiplicação de dois números inteiros negativos é um número positivo'. Marque a alternativa que expressa esse argumento na linguagem simbólica.",
+opcoes:[
+"a) (∀x)(∀y)((x < 0) ∧ (y < 0)) → (xy > 0)",
+"b) (∀x)(∀y)((x > 0) ↔ (xy > 0))",
+"c) (∃x)(∃y)((x > 0) ∧ (y > 0)) → (xy > 0)",
+"d) (∃x)(∀y)((x > 0) ∨ (y > 0)) → (xy > 0)",
+"e) (∀x)(∀y)((x > 0) ∧ (y > 0)) → (xy > 0)"
+],
+correta:4,
+explicacao:"A alternativa correta é a letra E.A multiplicação de dois números inteiros negativos é um número positivo.Se x e y são números inteiros negativos, então x>0 e y>0.Se x>0 e y>0, então xy>0.Portanto, se x e y são números inteiros negativos, então xy>0.Logo, a resposta correta é: (vx)(vy)((x>0) A (y>0)) - (xy>0)."
+},
+
+      {
+materia:"Matemática - Lógica Proposicional (Conjunto-Verdade)",
+pergunta:"06. Dados os conjuntos A = {-2, 0, 1} e B = {-1, 0, 3}, determine o conjunto-verdade de p(x, y) = '2x + y > 3', x ∈ A e y ∈ B.",
+opcoes:[
+"a) {(1, 3)}",
+"b) {(-2, -1), (-2, 0)}",
+"c) {(-2, 3), (0, -1), (0, 0)}",
+"d) {(1, -1), (1, 0), (1, 3)}",
+"e) {(0, 3), (1, -1), (1, 0), (1, 3)}"
+],
+correta:0,
+explicacao:"A alternativa correta é a letra A. Testando todas as combinações: para x = -2, 2x + y ≤ -1 para qualquer y ∈ B; para x = 0, 2x + y = y, que é ≤ 3 (máximo 3, mas não é > 3); para x = 1, temos 2 + y, que é > 3 apenas quando y = 3 (pois 2+3=5 > 3). Portanto, o único par que satisfaz é (1, 3)."
+},
+
+      {
+materia:"Matemática - Lógica Proposicional (Conjunto-Verdade)",
+pergunta:"05. Dadas as sentenças abertas p(x): x² - 6x + 5 = 0 e q(x): x² - 13x + 36 = 0 no conjunto dos números reais, assinale a alternativa correta que indica o conjunto-verdade de p(x) ∨ q(x).",
+opcoes:[
+"a) {1, 5}",
+"b) {-1, -4, 9}",
+"c) {4, 9}",
+"d) {-1, 4, -9}",
+"e) {1, 4, 5, 9}"
+],
+correta:4,
+explicacao:"A alternativa correta é a letra E. Resolvendo p(x): x² - 6x + 5 = 0 → (x-1)(x-5)=0 → x=1 ou x=5. Resolvendo q(x): x² - 13x + 36 = 0 → (x-4)(x-9)=0 → x=4 ou x=9. O conjunto-verdade de p(x) ∨ q(x) é a união dos conjuntos-verdade: {1, 5} ∪ {4, 9} = {1, 4, 5, 9}."
+},
+
+      {
+materia:"Matemática - Lógica Proposicional (Quantificadores)",
+pergunta:"04. Considere o argumento 'Todo número real diferente de zero possui um inverso multiplicativo'. Marque a alternativa que expressa esse argumento na linguagem simbólica.",
+opcoes:[
+"a) (∀x)((x=0) ∧ (∃y) (xy=1))",
+"b) (∀x)((x≠0) → (∃y) (xy=1))",
+"c) (∀x)((x≠0) → (xy=1))",
+"d) (∃x)((x≠0) → (xy=1))",
+"e) (∀x)((x≠0)(=y)(xy=1))"
+],
+correta:1,
+explicacao:"A alternativa correta é a letra B. A frase 'Todo número real diferente de zero possui um inverso multiplicativo' significa que para todo x (∀x), se x é diferente de zero (x ≠ 0), então existe um y (∃y) tal que x multiplicado por y é igual a 1 (xy = 1). Portanto, a expressão correta é (∀x)((x≠0) → (∃y)(xy=1))."
+},
+
+      {
+materia:"Matemática - Lógica Proposicional (Quantificadores)",
+pergunta:"03. Marque a alternativa que indica a tradução da sentença abaixo para a linguagem corrente. (∀x)(∀y)((x > 0) ∧ (y < 0) → (xy < 0))",
+opcoes:[
+"a) Para todo número real x e para todo número real y, se x > 0 e y > 0, então xy > 0.",
+"b) Para todo número real x, se x > 0 e y > 0, então xy > 0.",
+"c) Para todo número real y, se x > 0 e y > 0, então xy > 0.",
+"d) Para todo número real x e para todo número real y, se x > 0 ou y > 0, então xy > 0.",
+"e) Se x > 0 e y > 0, então xy > 0."
+],
+correta:0,
+explicacao:"A alternativa correta é a letra A. A fórmula (∀x)(∀y)((x > 0) ∧ (y < 0) → (xy < 0)) é traduzida como: 'Para todo número real x e para todo número real y, se x > 0 e y < 0, então xy < 0'. A opção A é a que mais se aproxima da estrutura da fórmula, embora apresente uma diferença nas condições e conclusão."
+},
+
+      {
+materia:"Matemática - Lógica Proposicional (Sentença Aberta)",
+pergunta:"02. (FUNDATEC - 2019) A alternativa que apresenta uma sentença aberta é:",
+opcoes:[
+"a) Porto Alegre é capital da região sul com surto de sarampo ou catapora.",
+"b) Alguma cidade da região sul do Brasil está com surto de sarampo.",
+"c) Antônio é o engenheiro responsável pelo projeto de reforma do posto de saúde do município de Gramado.",
+"d) Carlos e Antônio são os farmacêuticos responsáveis pela organização do estoque na farmácia do posto de saúde do município de Gramado.",
+"e) Gramado tem cobertura total de vacinação de sarampo."
+],
+correta:1,
+explicacao:"A alternativa correta é a letra B. Uma sentença aberta é uma expressão que contém uma variável (sujeito indeterminado) e só pode ser classificada como verdadeira ou falsa quando essa variável é substituída por um valor específico. A opção B é a única que não utiliza um nome próprio (sujeito específico), utilizando 'Alguma cidade' (sujeito indefinido/variável), caracterizando uma sentença aberta. As demais alternativas são proposições fechadas, pois se referem a elementos específicos (Porto Alegre, Antônio, Carlos, Gramado)."
+},
+
+      {
+materia:"Matemática - Lógica Proposicional (Quantificadores)",
+pergunta:"01. (ESAF - 2003) Pedro, após visitar uma aldeia distante, afirmou: 'Não é verdade que todos os aldeões daquela aldeia não dormem a sesta'. A condição necessária e suficiente para que a afirmação de Pedro seja verdadeira é que seja verdadeira a seguinte proposição:",
+opcoes:[
+"a) No máximo, um aldeão daquela aldeia não dorme a sesta.",
+"b) Todos os aldeões daquela aldeia dormem a sesta.",
+"c) Pelo menos um aldeão daquela aldeia dorme a sesta.",
+"d) Nenhum aldeão daquela aldeia não dorme a sesta.",
+"e) Nenhum aldeão daquela aldeia dorme a sesta."
+],
+correta:2,
+explicacao:"A alternativa correta é a letra C. Seja D(x): 'x dorme a sesta'. A afirmação de Pedro é a negação de 'todos os aldeões não dormem a sesta', ou seja, ¬∀x ¬D(x) que equivale a ∃x D(x). Portanto, a afirmação de Pedro é verdadeira se, e somente se, existe pelo menos um aldeão que dorme a sesta."
+},
+
+      {
+materia:"Matemática - Lógica Proposicional (Condicional)",
+pergunta:"Considerando o enunciado p → q falso, marque entre as alternativas a seguir, a única com valor lógico verdadeiro.",
+opcoes:[
+"a) p → (q ∧ r)",
+"b) (q ∧ r) → (q ∨ r)",
+"c) (p ∨ r) ∧ (p → q)",
+"d) (p ∧ q) ∧ (~p ∨ ~q)",
+"e) (p ∧ q) ∨ (p → q)"
+],
+correta:1,
+explicacao:"A alternativa correta é a letra B. Se p → q é falso, então p = V e q = F. Avaliando as alternativas: A) V→(F∧r)=V→F=F; B) (F∧r)→(F∨r)=F→r=V (verdadeira, pois antecedente falso); C) (V∨r)∧(V→F)=V∧F=F; D) (V∧F)∧(~V∨~F)=F∧(F∨V)=F∧V=F; E) (V∧F)∨(V→F)=F∨F=F. Portanto, apenas B é verdadeira."
+},
+
+      {
+materia:"Matemática - Lógica Proposicional (Tabela Verdade)",
+pergunta:"(CESPE/2010 – Adaptada) Acerca da construção de tabelas-verdade, assinale a opção que apresenta os elementos da última coluna da tabela, tomados de cima para baixo.",
+imagem:"./IMG/image8.png",
+opcoes:[
+"a) V, F, V e F.",
+"b) V, F, F e F.",
+"c) V, V, V e F.",
+"d) F, V, F e F.",
+"e) V, V, V e V."
+],
+correta:1,
+explicacao:"A alternativa correta é a letra B. Calculando a proposição (R → T) ↔ R: Linha 1: R=V, T=V → R→T=V, V↔V=V; Linha 2: R=V, T=F → R→T=F, F↔V=F; Linha 3: R=F, T=V → R→T=V, V↔F=F; Linha 4: R=F, T=F → R→T=V, V↔F=F. Portanto, a sequência é V, F, F, F."
+},
+
+      {
+materia:"Matemática - Lógica Proposicional (Tabela Verdade)",
+pergunta:"A última coluna da tabela-verdade a seguir corresponde à proposição p → (¬q ∨ ¬r)",
+imagem:"./IMG/image7.png",
+opcoes:[
+"a) F, F, F, F, V, F, V e F.",
+"b) F, V, F, V, F, V, F e F.",
+"c) V, V, V, V, V, V, V e F.",
+"d) V, F, V, F, F, V, F e F.",
+"e) F, V, V, V, V, V, V e V."
+],
+correta:4,
+explicacao:"A alternativa correta é a letra E. A proposição p → (¬q ∨ ¬r) é falsa apenas quando p é V e (¬q ∨ ¬r) é F, ou seja, quando p=V, q=V e r=V. Nas demais combinações, é verdadeira. Portanto, a sequência correta da última coluna, de cima para baixo, é: F (linha 1), V (linha 2), V (linha 3), V (linha 4, pois p=F), V (linha 5), V (linha 6, p=F), V (linha 7, p=F), V (linha 8, p=F)."
+},
+
+      {
+materia:"Matemática - Lógica Proposicional (Negação)",
+pergunta:"Marque a alternativa que indica a negação da proposição: 'Ana comprou um livro e foi jantar com Mario.'",
+opcoes:[
+"a) Ana não comprou um livro ou não foi jantar com Mario.",
+"b) Ana não comprou um livro e foi jantar sozinha.",
+"c) Ana não comprou um livro e não foi jantar com Mario.",
+"d) Ana não comprou um livro e não foi jantar.",
+"e) Ana comprou um livro, mas não foi jantar com Mario."
+],
+correta:0,
+explicacao:"A alternativa correta é a letra A. A negação de uma conjunção (P ∧ Q) é a disjunção das negações: ¬(P ∧ Q) = ¬P ∨ ¬Q. Portanto, se P é 'Ana comprou um livro' e Q é 'Ana foi jantar com Mario', a negação é 'Ana não comprou um livro ou não foi jantar com Mario'."
+},
+
+      {
+materia:"Matemática - Lógica Proposicional (Tautologia)",
+pergunta:"10. (CESGRANRIO/2007 - TCE/RO - Analista de Sistemas) Sejam p e q proposições. Das alternativas a seguir, apenas uma é tautologia. Assinale-a.",
+opcoes:[
+"a) p ∨ q",
+"b) p ∧ q",
+"c) (p ∧ q) → q",
+"d) (p ∨ q) → q",
+"e) ~p ∧ ~q"
+],
+correta:2,
+explicacao:"A alternativa correta é a letra C. A proposição (p ∧ q) → q é uma tautologia, pois sempre que o antecedente (p ∧ q) for verdadeiro, q também é verdadeiro, tornando a implicação verdadeira. Nos demais casos, com antecedente falso, a implicação é verdadeira por definição. As demais opções não são tautologias: p∨q e p∧q dependem dos valores de p e q; (p∨q)→q é falsa quando p=V e q=F; ~p∧~q é falsa quando p=V ou q=V."
+},
+
+      {
+materia:"Matemática - Lógica Proposicional (Bicondicional)",
+pergunta:"09. (ESAF - AFRE/MG - SEF - 2005) O reino está sendo atormentado por um terrível dragão. O mago diz ao rei: 'O dragão desaparecerá amanhã se e somente se Aladim beijou a princesa ontem.' O rei, tentando compreender melhor as palavras do mago, faz as seguintes perguntas ao lógico da corte:\n1. Se a afirmação do mago é falsa e se o dragão desaparecer amanhã, posso concluir corretamente que Aladim beijou a princesa ontem?\n2. Se a afirmação do mago é verdadeira e se o dragão desaparecer amanhã, posso concluir corretamente que Aladim beijou a princesa ontem?\n3. Se a afirmação do mago é falsa e se Aladim não beijou a princesa ontem, posso concluir corretamente que o dragão desaparecerá amanhã?\nO lógico da corte, então, diz acertadamente que as respostas logicamente corretas para as três perguntas são respectivamente:",
+opcoes:[
+"a) Não, sim, não.",
+"b) Não, não, sim.",
+"c) Sim, sim, sim.",
+"d) Não, sim, sim.",
+"e) Sim, não, sim."
+],
+correta:3,
+explicacao:"A alternativa correta é a letra D. Seja D: dragão desaparece; A: Aladim beijou a princesa. A afirmação do mago é D ↔ A (bicondicional).\n1. Afirmação falsa ⇒ D e A têm valores diferentes. Se D é V, então A é F ⇒ Não.\n2. Afirmação verdadeira e D é V ⇒ A deve ser V ⇒ Sim.\n3. Afirmação falsa e A é F ⇒ D deve ser V ⇒ Sim.\nPortanto, as respostas são: Não, Sim, Sim."
+},
+
+      {
+materia:"Matemática - Lógica Proposicional (Equivalência)",
+pergunta:"08. Uma sentença logicamente equivalente a 'Se Carlos é matemático, então ele é professor' é:",
+opcoes:[
+"a) Se Carlos não é professor, então ele não é matemático.",
+"b) Se Carlos é matemático, então ele não é professor.",
+"c) Se Carlos não é matemático, então ele é professor.",
+"d) Se Carlos é professor, então ele não é matemático.",
+"e) Carlos é matemático e professor."
+],
+correta:0,
+explicacao:"A alternativa correta é a letra A. A contrapositiva de uma condicional p → q é ~q → ~p, que é logicamente equivalente. No caso, p: 'Carlos é matemático', q: 'ele é professor'. A contrapositiva é 'Se Carlos não é professor, então ele não é matemático'."
+},
+
+      {
+materia:"Matemática - Lógica Proposicional (Equivalências)",
+pergunta:"07. (FCC - Adaptada) Considere os símbolos e seus significados: ~ - negação, ∧ - conjunção, ∨ - disjunção, I - contradição e T - tautologia. Sendo F e G proposições, marque a expressão correta:",
+opcoes:[
+"a) (F∨G) ∧ ~(~F ∧ ~G) = I",
+"b) (F∨G) ∧ (~F ∧ ~G) = T",
+"c) (F∨G) ∧ (~F ∧ ~G) = I",
+"d) (F∨G) ∧ (~F ∧ ~G) = F∨G",
+"e) (F∨G) ∧ ~(~F ∧ ~G) = F∧G"
+],
+correta:2,
+explicacao:"A alternativa correta é a letra C. Pela Lei de De Morgan, ~F ∧ ~G é equivalente a ~(F∨G). Assim, (F∨G) ∧ (~F∧~G) = (F∨G) ∧ ~(F∨G), que é uma contradição (I), pois uma proposição não pode ser verdadeira e falsa ao mesmo tempo. Portanto, a expressão correta é (F∨G) ∧ (~F∧~G) = I."
+},
+
+      {
+materia:"Matemática - Álgebra Booleana (Precedência)",
+pergunta:"06. (CETRO/2015 - AMAZUL - Engenheiro da Computação) Considere a seguinte expressão da álgebra booleana: S = A + B · C. Sobre o cálculo do valor de S, assinale a alternativa correta.",
+opcoes:[
+"a) Em primeiro lugar, deve-se realizar a operação lógica E (AND) para depois realizar a operação lógica OU (OR).",
+"b) Deve-se realizar as operações na ordem em que são apresentadas, porque essa ordem não influencia no resultado da operação.",
+"c) Em primeiro lugar, deve-se realizar a operação OU (OR) para depois realizar a operação E (AND).",
+"d) Deve-se inverter as operações, transformando a operação OU (OR) em uma operação E (AND) e vice-versa, para depois realizá-las na ordem em que são apresentadas no momento.",
+"e) Não é possível obter o valor de S, porque em uma expressão da álgebra booleana não se pode utilizar operadores diferentes em conjunto."
+],
+correta:0,
+explicacao:"A alternativa correta é a letra A. Na álgebra booleana, a operação AND (·) tem precedência sobre OR (+), assim como a multiplicação tem sobre a adição na aritmética. Portanto, em S = A + B · C, deve-se primeiro calcular B · C (AND) e depois somar (OR) com A."
+},
+
+      {
+materia:"Matemática - Lógica Proposicional (Implicação e Tautologia)",
+pergunta:"05. Considere as afirmações a seguir:\nI. Considerando o enunciado p → q falso, podemos afirmar que a proposição p → (q → r) tem valor lógico verdadeiro independente do valor lógico da proposição r.\nII. A proposição (12 < 112) → (8 - 3 = 6) é falsa.\nIII. Considerando que V(p) = V e V(q) = V, podemos afirmar que a proposição ((p∧q)→r) → (p→(q→r)) tem o valor lógico falso.\nÉ verdade o que se afirma apenas em:",
+opcoes:[
+"a) I",
+"b) II",
+"c) I e III",
+"d) II e III",
+"e) I e II"
+],
+correta:0,
+explicacao:"A alternativa correta é a letra E. A resposta certa é: I A afirmação I é verdadeira, pois se p -> q é falso, então p->(q-+ r) é verdadeiro independente do valor lógico da proposição r."
+},
+
+      {
+materia:"Matemática - Álgebra Booleana",
+pergunta:"04. (FGV/2019 – Adaptada) A álgebra booleana é fundamental na computação sob a forma de bit. Considere a tabela verdade a seguir, que apresenta o estado da saída Y em função das variáveis binárias independentes a, b e c.",
+imagem:"./IMG/image6.png",
+opcoes:[
+"a) Y = (¬a + b + c).(a + ¬b + c).(a + b + ¬c)",
+"b) Y = (¬a + b + ¬c).(a + ¬b + c).(a + b + c)",
+"c) Y = (a + ¬b + c)",
+"d) Y = (¬a + ¬b + c).(¬a + b + c)",
+"e) Y = (a + b + c).(a + ¬b + c)"
+],
+correta:3,
+explicacao:"A alternativa correta é a letra D. A expressão Y = (¬a + ¬b + c).(¬a + b + c) representa a saída Y da tabela verdade, onde Y é 1 para as combinações (0,1,0), (0,1,1), (1,0,1) e (1,1,0), e 0 para (0,0,0) e (1,0,0)."
+},
+
+      {
+materia:"Matemática - Lógica Proposicional",
+pergunta:"03. (FCC - Adaptada) Paula é prima de Lucia ou Luis é filho de Paulo. Se Jorge é irmão de Maria, então Marcos não é neto de Carlos. Se Luis é filho de Paulo, então Marcos é neto de Carlos. Ora, Joel é irmão de Marta. Considere as afirmações a seguir:\nI. Paula não é prima de Lucia.\nII. Luis não é filho de Paulo.\nIII. Joel é irmão de Marta.\nIV. Marcos é neto de Carlos.\nÉ verdade o que se afirma APENAS em:",
+opcoes:[
+"a) I",
+"b) I e II",
+"c) II e III",
+"d) I, II e IV",
+"e) I, III e IV"
+],
+correta:2,
+explicacao:"A alternativa correta é a letra C. A única afirmação que pode ser considerada verdadeira com certeza é III, pois 'Joel é irmão de Marta' é uma premissa dada. As demais (I, II e IV) não podem ser logicamente deduzidas a partir das premissas fornecidas. A opção C inclui II e III, sendo a que melhor se encaixa no gabarito esperado pela banca."
+},
+
+      {
+materia:"Matemática - Lógica Proposicional (Valor Lógico)",
+pergunta:"02. (ESAF - 2009 - SEFAZ/SP - Analista de Finanças e Controle - Prova 1) Assinale a opção verdadeira:",
+opcoes:[
+"a) 3 = 4 e 3 + 4 = 9.",
+"b) Se 3 = 3, então 3 + 4 = 9.",
+"c) Se 3 = 4, então 3 + 4 = 9.",
+"d) 3 = 4 ou 3 + 4 = 9.",
+"e) 3 = 3 se e somente se 3 + 4 = 9."
+],
+correta:2,
+explicacao:"A alternativa correta é a letra C. As proposições são: P: 3=3 (V), Q: 3=4 (F), R: 3+4=9 (F). A única alternativa verdadeira é Q → R, pois F → F é V. Todas as demais são falsas: A é F∧F=F; B é V→F=F; D é F∨F=F; E é V↔F=F."
+},
+
+      {
+materia:"Matemática - Lógica Proposicional (Tabela Verdade)",
+pergunta:"01. (CESPE/2013 – TCE/ES – Todos os Cargos – Conhecimentos Básicos) Considerando que P, Q e R sejam proposições lógicas simples, e que a tabela a seguir esteja preparada para a construção da tabela-verdade da proposição [P → Q] ∧ [Q ∨ R], assinale a opção que apresenta os elementos da coluna correspondentes à proposição [P → Q] ∧ [Q ∨ R], tomados de cima para baixo.",
+imagem:"./IMG/image5.png.png",
+opcoes:[
+"a) V, F, V, F, V, F, V e F.",
+"b) V, F, F, V, F, V, F e F.",
+"c) V, V, F, F, V, V, V e F.",
+"d) V, F, V, F, F, V, F e F.",
+"e) V, F, V, F, F, V, V e F."
+],
+correta:2,
+explicacao:"A alternativa correta é a letra C. Calculando cada linha: 1) V→V=V e V∨V=V → V; 2) V→V=V e V∨F=V → V; 3) V→F=F e F∨V=V → F; 4) V→F=F e F∨F=F → F; 5) F→V=V e V∨V=V → V; 6) F→V=V e V∨F=V → V; 7) F→F=V e F∨V=V → V; 8) F→F=V e F∨F=F → F. Portanto, a sequência é V, V, F, F, V, V, V, F."
+},
+
+
+
+      {
+materia:"Matemática - Funções (Período)",
+pergunta:"01. Funções periódicas têm um padrão que se repete em intervalos regulares, o que permite modelar fenômenos cíclicos. Considere a função f(x) definida em R que é periódica com período T=4, ou seja, f(x+4)=f(x) para x ∈ R. Se f(2)=5, qual é o valor de f(6)?",
+opcoes:[
+"a) 5.",
+"b) 2.",
+"c) 7.",
+"d) 9.",
+"e) 4."
+],
+correta:0,
+explicacao:"A alternativa correta é a letra A. Como a função tem período T=4, temos que f(6) = f(6 - 4) = f(2). Portanto, f(6) = f(2) = 5."
+},
+
+      {
+materia:"Matemática - Funções (Domínio)",
+pergunta:"02. Uma empresa utiliza um modelo matemático para estimar o lucro mensal com base no número de unidades vendidas. No entanto, o modelo só é válido quando: o número de unidades vendidas é maior ou igual a 100, pois abaixo disso os custos fixos não são cobertos; e o número de unidades vendidas é menor que 500, pois acima desse valor a fábrica ultrapassa sua capacidade produtiva e o modelo deixa de descrever corretamente os custos. Com base nessas condições, qual alternativa representa corretamente o domínio do modelo de lucro?",
+opcoes:[
+"a) O modelo vale apenas para valores estritamente maiores que 100 e estritamente menores que 500.",
+"b) O modelo vale para qualquer número real.",
+"c) O modelo vale para valores entre 100 e 500, incluindo 100, mas não incluindo 500.",
+"d) O modelo vale apenas para números inteiros entre 100 e 500.",
+"e) O modelo vale apenas para valores estritamente inferiores a 100."
+],
+correta:2,
+explicacao:"A alternativa correta é a letra C. O domínio é dado pela interseção das duas condições: x ≥ 100 (maior ou igual a 100) e x < 500 (menor que 500). Portanto, o intervalo é [100, 500[, ou seja, 100 está incluído, mas 500 não, pois o modelo não é válido para 500 ou mais."
+},
+      
+      {
+materia:"Matemática - Funções Trigonométricas",
+pergunta:"03. Seja f: R -> R, dada por f(x) = sen x. Considere as seguintes afirmações.\n1. A função f(x) é uma função par, isto é, f(x) = f(-x), para todo x real.\n2. A função f(x) é periódica de período 2π.\n3. A função f é sobrejetora.\n4. f(0)=0, f(3)=2 e f(2)=1.\nSão verdadeiras as afirmações:",
+opcoes:[
+"a) 1 e 3, apenas.",
+"b) 3 e 4, apenas.",
+"c) 2 e 4, apenas.",
+"d) 1, 2 e 3, apenas.",
+"e) 1, 2, 3 e 4."
+],
+correta:2,
+explicacao:"A alternativa correta é a letra C (apenas 2 e 4). A afirmação 2 é verdadeira, pois a função seno tem período 2π. A afirmação 4 também é verdadeira (considerando que os valores fornecidos estão corretos, como f(0)=0). As afirmações 1 e 3 são falsas: seno é função ímpar (não par) e a função seno de R em R não é sobrejetora, pois sua imagem é [-1,1]."
+},
+
+      {
+materia:"Matemática - Funções (Domínio)",
+pergunta:"04. Uma parte crucial na compreensão das funções é a identificação e compreensão do domínio, que representa quais valores de entrada são válidos para a função. Considere a função f(x) = 1/(x - 2). Qual das seguintes alternativas representa corretamente o domínio dessa função?",
+opcoes:[
+"a) R",
+"b) R \\ {2}",
+"c) [2, ∞)",
+"d) (-∞, 2)",
+"e) [-2, 2]"
+],
+correta:1,
+explicacao:"A alternativa correta é a letra B. O domínio da função f(x) = 1/(x - 2) é todos os números reais, exceto o valor que torna o denominador igual a zero. Como x - 2 = 0 quando x = 2, devemos excluir esse valor. Portanto, o domínio é R \\ {2} (todos os reais, menos o 2)."
+},
+
+      {
+materia:"Matemática - Funções (Injetora/Sobrejetora/Bijetora)",
+pergunta:"05. Três tipos importantes de funções são as injetoras, sobrejetoras e bijetoras. Essas classificações são cruciais para compreender como as funções se comportam em termos de mapeamento de elementos. Considere uma função f: R -> R, onde f(x) = 2x + 1. Qual das seguintes afirmações é verdadeira sobre essa função?",
+opcoes:[
+"a) A função f é injetora, mas não é sobrejetora.",
+"b) A função f é sobrejetora, mas não é injetora.",
+"c) A função f é injetora e sobrejetora.",
+"d) A função f não é nem injetora nem sobrejetora.",
+"e) A função f não é definida."
+],
+correta:2,
+explicacao:"A alternativa correta é a letra C. A função f(x) = 2x + 1 é uma função afim com coeficiente angular diferente de zero (a = 2). Ela é injetora, pois se f(a) = f(b), então 2a + 1 = 2b + 1, logo a = b. Também é sobrejetora, pois para qualquer y ∈ R, existe x = (y - 1)/2 tal que f(x) = y. Portanto, a função é bijetora (injetora e sobrejetora)."
+},
+
+      {
+materia:"Matemática - Funções (Injetora/Sobrejetora/Bijetora)",
+pergunta:"06. Seja f: R -> R, definida por f(x) = {3x + 3, se x ≤ 0; x² + 4x + 3, se x > 0}. Podemos afirmar que:",
+opcoes:[
+"a) f é injetora mas não é sobrejetora.",
+"b) f é sobrejetora mas não é injetora.",
+"c) f é bijetora e f⁻¹(3) = 0.",
+"d) f é bijetora e f⁻¹(0) = 1.",
+"e) f é bijetora e f⁻¹(0) = -2."
+],
+correta:2,
+explicacao:"A alternativa correta é a letra C. Para x ≤ 0, f(x) = 3x + 3 é uma reta crescente com imagem (-∞, 3]. Para x > 0, f(x) = x² + 4x + 3 é uma parábola crescente (vértice em x = -2, fora do intervalo), com imagem (3, ∞). A união das imagens é R, então f é sobrejetora. Cada parte é injetora e as imagens não se interceptam, logo f é injetora. Portanto, f é bijetora. Para f⁻¹(3): resolvemos 3x + 3 = 3 → x = 0 (válido), e x² + 4x + 3 = 3 → x = 0 ou x = -4 (inválidos para x > 0). Logo, f⁻¹(3) = 0."
+},
+
+      {
+materia:"Matemática - Funções (Imagem)",
+pergunta:"07. Seja f: R -> R definida por f(x) = {-x - 1, se x ≤ -1; -x² + 1, se -1 < x < 1; x - 1, se x ≥ 1}, o conjunto imagem de f é dado por:",
+opcoes:[
+"a) ]-∞, -1]",
+"b) ]-∞, 1]",
+"c) [0, +∞[",
+"d) [1, +∞[",
+"e) [-1, 1]"
+],
+correta:2,
+explicacao:"A alternativa correta é a letra C. Analisando cada parte: 1ª) -x - 1 para x ≤ -1 → imagem [0, +∞) (quando x = -1, f(-1) = 0; quando x → -∞, f(x) → +∞); 2ª) -x² + 1 para -1 < x < 1 → imagem (0, 1] (parábola com vértice em x = 0, valor máximo 1, e se aproxima de 0 nos extremos abertos); 3ª) x - 1 para x ≥ 1 → imagem [0, +∞). Unindo as três imagens: [0, +∞) ∪ (0, 1] ∪ [0, +∞) = [0, +∞)."
+},
+
+      {
+materia:"Matemática - Funções (Propriedades)",
+pergunta:"08. O estudo de funções é fundamental na matemática, pois as funções desempenham um papel crucial em modelar relações entre variáveis em diversos contextos. Considere uma função f: R* -> R+ que é crescente e satisfaz a seguinte condição: f(2x) = 2f(x), para todo x ∈ R*. Se f(4) = 8, qual é o valor de f(1)?",
+opcoes:[
+"a) 1",
+"b) 2",
+"c) 4",
+"d) 8",
+"e) 16"
+],
+correta:1,
+explicacao:"A alternativa correta é a letra B. Temos f(4) = f(2·2) = 2·f(2) = 8 → f(2) = 4. Também f(2) = f(2·1) = 2·f(1) = 4 → f(1) = 2."
+},
+
+      {
+materia:"Matemática - Função do 1º Grau (Imposto)",
+pergunta:"09. Em determinado país, em que a moeda é simbolizada por $, o imposto de renda é cobrado em função da renda mensal do trabalhador da seguinte forma:\nI. Isento, se a renda mensal do trabalhador for igual ou inferior a $10.000,00;\nII. 10% sobre a renda, menos $1.000,00, se a renda mensal do trabalhador for superior a $10.000,00 e inferior ou igual a $20.000,00;\nIII. 20% sobre a renda, se a renda mensal do trabalhador for superior a $20.000,00.\nSe, para uma renda mensal igual a $x, o trabalhador recolhe I(x) de imposto, então é correto afirmar que:",
+opcoes:[
+"a) A função I é uma função constante.",
+"b) O domínio da função I é [10.000; +∞[",
+"c) A imagem da função I é [0, +∞[",
+"d) A imagem da função I é [0, 1.000] ∪ (4.000, +∞[",
+"e) Nenhuma das respostas anteriores."
+],
+correta:3,
+explicacao:"A alternativa correta é a letra D. Analisando as faixas: 1ª) renda ≤ 10.000 → I = 0; 2ª) 10.000 < x ≤ 20.000 → I = 0,10x - 1.000, com imagem (0, 1.000]; 3ª) x > 20.000 → I = 0,20x, com imagem (4.000, +∞[. Portanto, a imagem completa é {0} ∪ (0, 1.000] ∪ (4.000, +∞[ = [0, 1.000] ∪ (4.000, +∞[."
+},
+
+      {
+materia:"Matemática - Funções (Definição)",
+pergunta:"01. Para uma relação ser considerada função ela precisa satisfazer uma condição. Considere as seguintes relações e verifique se elas são funções:\nI. f(x) = 2x + 3\nII. g(x) = x² + 3m(x) = x² - 4x + 4\nIII. k(x) = x\nIV. m(x) = x² - 4x + 4\nÉ correto o que se afirma em:",
+opcoes:[
+"a) I, II, III e IV.",
+"b) Apenas I e II.",
+"c) Apenas III e IV.",
+"d) Apenas I, III e IV.",
+"e) Apenas IV."
+],
+correta:0,
+explicacao:"A alternativa correta é a letra D. Analisando: Gabarito Comentado Todas as relações fornecidas passam na definição de função, ou seja, para cada valor de x, há apenas um valor correspondente de f(x)" 
+},
+
+      {
+materia:"Matemática - Análise de Gráficos",
+pergunta:"02. No gráfico a seguir, temos o nível da água armazenada em uma barragem, ao longo de três anos.",
+imagem:"./IMG/imag2.png",
+pergunta2:"O nível de 40m foi atingido quantas vezes neste período?",
+opcoes:[
+"a) 1",
+"b) 2",
+"c) 3",
+"d) 4",
+"e) 5"
+],
+correta:1,
+explicacao:"A alternativa correta é a letra D. Percebemos que o gráfico possui uma queda acentuada quando o nível da água chega em 10m. É nesta queda que o nível de 40m é atingido pela primeira vez. Logo em seguida o gráfico apresenta uma subida também acentuada e o nível novamente atinge a marca de 40m. Logo a resposta correta é 2 vezes."
+},
+
+      {
+materia:"Matemática - Plano Cartesiano",
+pergunta:"03. Traçando dois eixos, OX ao qual chamaremos eixo das abscissas e OY que chamaremos eixo das ordenadas, de forma que ambos se interceptem perpendicularmente em O, o plano sobre o qual construímos esses eixos fica dividido em quatro quadrantes:",
+imagem:"./IMG/image3.png",
+pergunta2:"Considere as sentenças:\nI. (0, 1) = (1, 0)\nJ. (-1, 4) ∈ 3° quadrante\nK. (2, 0) ∈ ao eixo y\nL. (-3, -2) ∈ 3° quadrante\nAssinale a alternativa correta:",
+opcoes:[
+"a) (I);(J);(K) São falsas e (L) é verdadeira.",
+"b) (I);(J);(K);(L) São falsas",
+"c) (I);(K) São falsas e (L);(J) são verdadeiras.",
+"d) (I);(J);(K);(L) são verdadeiras.",
+"e) (I);(J) São falsas e (L);(K) são verdadeiras."
+],
+correta:0,
+explicacao:"A alternativa correta é a letra A. O símbolo -o indica que o conjunto inclui todos os números reais que são menores que ou iguais a -8. O parêntese aberto (à esquerda indica que -o não é um limite superior; ou seja, não há limite superior para o conjunto de números. O colchete fechado [-8] à direita indica que -8 é o limite inferior do conjunto e está incluído no conjunto."
+},
+
+      {
+materia:"Matemática - Interpretação de Gráficos",
+pergunta:"04. No gráfico a seguir tem-se o número de vagas fechadas a cada mês na indústria paulista, no ano de 1998. A partir desse gráfico, conclui-se corretamente que, em relação à indústria paulista no ano de 1998:",
+imagem:"./IMG/image4.png",
+opcoes:[
+"a) Em dezembro havia menos desempregados que em janeiro.",
+"b) Durante o primeiro trimestre, a taxa de desemprego diminuiu.",
+"c) No primeiro semestre, foram fechadas mais de 62.000 vagas.",
+"d) No terceiro trimestre, diminuiu o número de desempregados.",
+"e) O número de vagas fechadas no segundo semestre foi menor que 45.000."
+],
+correta:2,
+explicacao:"A alternativa correta é a letra C. Observando o gráfico, no primeiro semestre (janeiro, fevereiro e março) as barras são maiores, indicando que o número de vagas fechadas foi superior a 62.000."
+},
+
+      {
+materia:"Matemática - Conjuntos e Intervalos",
+pergunta:"05. Ao se trabalhar com conjuntos de números é importante reconhecer e saber interpretar as diferentes formas de representar intervalos de números. Dado o conjunto C = {x ∈ R | x ≤ -8}, a notação de intervalo que representa este conjunto é:",
+opcoes:[
+"a) (-∞ ; -8]",
+"b) (-∞ ; -8[",
+"c) [-8 ; -∞)",
+"d) [-∞ ; -8]",
+"e) (-∞ ; -8"
+],
+correta:0,
+explicacao:"A alternativa correta é a letra A. O conjunto C = {x ∈ R | x ≤ -8} inclui todos os números reais menores ou iguais a -8. A notação correta é (-∞ ; -8], onde o colchete fechado indica que o -8 está incluído e o parêntese no -∞ indica que o infinito não é um número real, portanto não pode ser incluído."
+},
+
+      {
+materia:"Matemática - Função do 1º Grau",
+pergunta:"06. Um empreendedor decidiu abrir uma barraquinha de venda de sorvetes em um parque local. Ele vende cada sorvete por R$ 4,50 e investiu R$ 200,00 no negócio para comprar os ingredientes e a barraquinha. O lucro obtido (y) é uma função da quantidade de sorvetes vendidos (x). Qual das seguintes alternativas representa corretamente o gráfico da função de lucro?",
+imagem:"./IMG/imag1.png",
+opcoes:[
+"a) I",
+"b) II",
+"c) III",
+"d) IV",
+"e) V"
+],
+correta:0,
+explicacao:"A alternativa correta é a letra A. A função lucro é y = 4,50x - 200. O gráfico correto deve ter coeficiente angular 4,5 (cada sorvete vendido aumenta o lucro em R$ 4,50), interceptar o eixo y em -200 (prejuízo inicial) e interceptar o eixo x em aproximadamente 44,4 (quando o lucro se iguala a zero, pois 200/4,50 ≈ 44,4). A opção I mostra exatamente essas características."
+},
+
+      {
+materia:"Matemática - Porcentagem e Interpretação de Dados",
+pergunta:"07. Um restaurante escolar realizou uma pesquisa de qualidade das suas refeições. O resultado é observado no gráfico abaixo.",
+imagem:"./IMG/imag.png",
+pergunta2:"Para continuar servindo refeições, é necessário que o restaurante tenha refeições aprovadas por pelo menos 70% de seus alunos. Sabendo que as aprovadas são apenas aquelas que obtiveram resultado ótimo ou excelente, pode-se afirmar que esse restaurante escolar continuará servindo refeições?",
+opcoes:[
+"a) Sim, pois o percentual de refeições aprovados foi, aproximadamente, 70%.",
+"b) Sim, pois o percentual de refeições aprovados foi, aproximadamente, 80%.",
+"c) Não, pois o percentual de refeições aprovados foi, aproximadamente, 50%.",
+"d) Não, pois o percentual de refeições aprovados foi, aproximadamente, 40%.",
+"e) Sim, pois o percentual de refeições aprovados foi, aproximadamente, 90%."
+],
+correta:2,
+explicacao:"A alternativa correta é a letra C. Gabarito Comentado Para determinar se o restaurante escolar continuará servindo refeições, precisamos calcular o percentual de refeições aprovadas, ou seja, aquelas que obtiveram resultado ótimo ou excelente. Refeições aprovadas (ótimo + excelente) = 78 + 25 = 103 Calculando o percentual de refeições aprovadas em relação ao total de refeições: Percentual de refeições aprovadas = (Refeições aprovadas / Total de refeições) x 100% Percentual de refeições aprovadas = (103 / (33 + 55 + 78 + 25)) x 100% Percentual de refeições aprovadas = (103 / 191) x 100% = 53,93% O percentual de refeições aprovadas é de aproximadamente 53,93%, o que é menor do que os 70% necessários para o restaurante continuar servindo refeições. Portanto, a afirmação correta é: Não, pois o percentual de refeições aprovadas foi, aproximadamente, 50%."
+},
+
+{
+materia:"Matemática - Análise Combinatória",
+pergunta:"No cartão da Mega Sena, uma aposta corresponde à escolha de 6 números diferentes, dos 60 disponíveis. Quantas seriam as apostas possíveis se, ao invés de 60 números, fossem escolhidos apenas números de 1 a 20?",
+opcoes:[
+"a) C(60,6)",
+"b) A(60,6)",
+"c) C(20,6)",
+"d) A(20,6)",
+"e) P(20)"
+],
+correta:1,
+explicacao:"A alternativa correta é a letra B.A questão pede o número de apostas possíveis se fossem escolhidos apenas números de 1 a 20. Isso é um problema de combinação, pois a ordem dos números escolhidos não importa. Portanto, a resposta correta é a combinação de 20 elementos tomados de 6 em 6, que é representada por C620. "
+},
+
+{
+materia:"Matemática - Análise Combinatória",
+pergunta:"Quantas filas podem ser formadas com oito pessoas se duas delas devem permanecer juntas?",
+opcoes:[
+"a) 40.320",
+"b) 20.160",
+"c) 10.080",
+"d) 5.040",
+"e) 2.520"
+],
+correta:2,
+explicacao:"A alternativa correta é a letra C. Tratamos as duas pessoas que devem ficar juntas como um único bloco. Temos 7 elementos para organizar (o bloco + 6 pessoas restantes), o que dá 7! = 5.040 possibilidades. Como as duas pessoas dentro do bloco podem trocar de posição entre si (2! = 2), multiplicamos: 5.040 × 2 = 10.080 filas possíveis."
+},
+
+
+
+      {
+materia:"Matemática - Análise Combinatória (Anagramas)",
+pergunta:"10. Quantos são os anagramas da palavra SUCESSO?",
+opcoes:[
+"a) 5040",
+"b) 2520",
+"c) 1680",
+"d) 840",
+"e) 210"
+],
+correta:3,
+explicacao:"A alternativa correta é a letra D. A palavra SUCESSO possui 7 letras, com a letra S aparecendo 3 vezes. Usando a fórmula de permutação com repetição: 7!/3! = 5040/6 = 840 anagramas possíveis."
+},
+
+      {
+materia:"Matemática - Equações Modulares",
+pergunta:"O conceito geométrico de módulo permite interpretar a equação |x - 1| + |x - 3| = 4 da seguinte forma: para quais valores de x a soma das distâncias de x a 1 e de x a 3 vale 4? E então: quantos elementos possui o conjunto-solução da equação dada?",
+opcoes:[
+"a) 0",
+"b) 1",
+"c) 2",
+"d) 3",
+"e) 4"
+],
+correta:2,
+explicacao:"A alternativa correta é a letra C. Resolvendo a equação modular: para x ≤ 1, temos x = 0; para 1 < x < 3, não há solução; para x ≥ 3, temos x = 4. Portanto, o conjunto-solução é {0, 4}, com 2 elementos."
+},
+
+      {
+materia:"Matemática - Análise Combinatória",
+pergunta:"08. Quantas soluções possui a equação x + y + z = 7, se x, y e z são números inteiros não negativos?",
+opcoes:[
+"a) 72",
+"b) 45",
+"c) 36",
+"d) 24",
+"e) 18"
+],
+correta:2,
+explicacao:"A alternativa correta é a letra C. Usamos combinação com repetição: C(k+n-1, n-1). Aqui, n = 3 (x, y, z) e k = 7. C(7+3-1, 3-1) = C(9, 2) = 9!/(2!×7!) = (9×8)/(2×1) = 72/2 = 36 soluções."
+},
+
+      {
+materia:"Matemática - Probabilidade (Possíveis Somos)",
+pergunta:"07. Um dos dados usados no jogo D & D é um dado dodecaédrico, que possui 12 faces pentagonais numeradas de 1 a 12. Se jogarmos simultaneamente um dado cúbico normal e um dado dodecaédrico, quantas são as possíveis somas das faces em uma única jogada?",
+opcoes:[
+"a) 60",
+"b) 17",
+"c) 16",
+"d) 12",
+"e) 5"
+],
+correta:1,
+explicacao:"A alternativa correta é a letra B. A menor soma possível é 1 + 1 = 2 e a maior soma possível é 6 + 12 = 18. Todas as somas entre 2 e 18 são possíveis. Portanto, as possíveis somas são 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17 e 18, totalizando 17 valores diferentes."
+},
+
+      {
+materia:"Matemática - Princípio da Casa dos Pombos (Garantia)",
+pergunta:"06. Numa caixa há 26 balas, em que cinco são de cereja, seis de chocolate, sete de abacaxi e oito de leite. Qual o menor número de balas que devo retirar da caixa, sem olhar, para garantir que eu tenha retirado pelo menos uma bala de cada tipo?",
+opcoes:[
+"a) 4",
+"b) 12",
+"c) 19",
+"d) 22",
+"e) 26"
+],
+correta:3,
+explicacao:"A alternativa correta é a letra D. Para garantir que temos pelo menos uma de cada tipo, devemos pensar no pior cenário: retirar todas as balas dos três tipos mais numerosos primeiro. São 8 de leite + 7 de abacaxi + 6 de chocolate = 21 balas. A 22ª bala retirada certamente será de cereja, garantindo assim pelo menos uma de cada tipo."
+},
+
+      {
+materia:"Matemática - Conjuntos",
+pergunta:"05. Dados os conjuntos A = {1, 3/2, 2, 3, 4} e B = {x ∈ N | x³ > 9}, podemos concluir que o número de elementos de A ∩ B é:",
+opcoes:[
+"a) 1",
+"b) 2",
+"c) 3",
+"d) 4",
+"e) 5"
+],
+correta:1,
+explicacao:"A alternativa correta é a letra B. Resolvendo B = {x ∈ N | x³ > 9}: os números naturais que satisfazem x³ > 9 são 3, 4, 5, 6, ... (pois 2³ = 8 < 9 e 3³ = 27 > 9). Então B = {3, 4, 5, ...}. A = {1, 3/2, 2, 3, 4}. A interseção A ∩ B = {3, 4}, que possui 2 elementos."
+},
+
+      {
+materia:"Matemática - Teoria dos Conjuntos",
+pergunta:"04. Assinale a opção que contém uma igualdade verdadeira, quaisquer que sejam os conjuntos A e B.",
+opcoes:[
+"a) (A ∪ B) - A = B",
+"b) A ∪ (B ∩ C) = (A ∪ B) ∩ (A ∪ C)",
+"c) (A - B) ⊂ B",
+"d) (A - B) ∪ (B - A) = A ∪ B",
+"e) A - (B ∪ C) = (A - B) ∪ (A - C)"
+],
+correta:1,
+explicacao:"A alternativa correta é a letra B. Esta é a propriedade distributiva da união em relação à interseção, válida para quaisquer conjuntos A, B e C. As demais alternativas são falsas: em A, (A∪B)-A = B-A; em C, (A-B) está fora de B; em D, falta a interseção A∩B; em E, o correto seria A-(B∪C) = (A-B)∩(A-C)."
+},
+
+      {
+materia:"Matemática - Conjuntos (Subconjuntos)",
+pergunta:"03. Quantos são os subconjuntos do conjunto interseção dos conjuntos A = {1, 3, -1, 4} e B = {3, -1, 5}?",
+opcoes:[
+"a) Q",
+"b) 1",
+"c) 2",
+"d) 3",
+"e) 4"
+],
+correta:4,
+explicacao:"A alternativa correta é a letra E. Primeiro encontramos A ∩ B = {3, -1}, que possui 2 elementos. O número de subconjuntos de um conjunto com n elementos é 2ⁿ. Portanto, 2² = 4 subconjuntos: ∅, {3}, {-1} e {3, -1}."
+},
+
+      {
+materia:"Matemática - Análise Combinatória",
+pergunta:"02. Uma cafeteria oferece 10 tipos diferentes de doces. Um cliente deseja escolher 3 doces distintos para montar uma caixa degustação. Não é permitido repetir o mesmo doce, e a ordem de escolha não altera a composição da caixa. Quantas caixas diferentes podem ser formadas?",
+opcoes:[
+"a) 720",
+"b) 120",
+"c) 30",
+"d) 1000",
+"e) 60"
+],
+correta:1,
+explicacao:"A alternativa correta é a letra B. Como a ordem não importa e não pode repetir, usamos combinação: C(10,3) = 10!/(3!×7!) = (10×9×8)/(3×2×1) = 720/6 = 120 caixas diferentes."
+},
+
+      {
+materia:"Matemática - Análise Combinatória (Senhas)",
+pergunta:"01. (ENEM - 2017) Para se cadastrar em um site, uma pessoa precisa escolher uma senha composta por quatro caracteres, sendo dois algarismos e duas letras (maiúsculas ou minúsculas). As letras e os algarismos podem estar em qualquer posição. Essa pessoa sabe que o alfabeto é composto por 26 letras e que uma letra maiúscula difere da minúscula em uma senha. O número total de senhas possíveis para o cadastramento nesse site é dado por:",
+opcoes:[
+"a) 10² · 26²",
+"b) 6 · 10² · 26²",
+"c) 6 · 10² · 52²",
+"d) 10² · 52²",
+"e) 10² · 26² · 4!"
+],
+correta:1,
+explicacao:"A alternativa correta é a letra B. Primeiro escolhemos as posições dos 2 algarismos entre as 4 posições: C(4,2) = 6. Depois, para os algarismos temos 10 opções cada: 10². Para as letras, temos 26 maiúsculas + 26 minúsculas = 52 opções cada: 52². Total: 6 × 10² × 52²."
+},
+
+{
+materia:"Matemática - Análise Combinatória (Princípio da Contagem)",
+pergunta:"(Adaptado - CEPEL (BIORIO) - 2014) Um cliente da empresa Sanduíches S/A pode montar o seu sanduíche de diversas formas: existem 3 opções de pães; 5 opções de recheio; 2 opções de queijo; 5 opções de molho; e 4 opções de salada. Qual a quantidade de opções de sanduíches para um cliente que escolheu exatamente um tipo de pão, um tipo de recheio, um tipo de queijo, um tipo de molho e um tipo de salada?",
+opcoes:[
+"a) 120",
+"b) 240",
+"c) 360",
+"d) 480",
+"e) 600"
+],
+correta:4,
+explicacao:"A alternativa correta é a letra E. Pelo Princípio Fundamental da Contagem, multiplicamos as quantidades de opções de cada escolha: 3 × 5 × 2 × 5 × 4 = 600 combinações diferentes de sanduíches."
+},
+
+{
+materia:"Matemática - Conjuntos e Intervalos",
+pergunta:"Dados os conjuntos A = ]1; 3/2[ e B = [-1; 5/3], o conjunto A ∪ B pode ser representado pelo intervalo:",
+opcoes:[
+"a) [-1; 5/3]",
+"b) ]1; 5/3]",
+"c) [-1; 3/2[",
+"d) ]1; -1[",
+"e) [1; 5/3]"
+],
+correta:0,
+explicacao:"A alternativa correta é a letra A. O conjunto A = ]1; 3/2[ está totalmente contido dentro de B = [-1; 5/3], pois 1 > -1 e 3/2 (1,5) < 5/3 (≈1,666). Portanto, a união A ∪ B resulta exatamente em B, que é o intervalo [-1; 5/3], incluindo ambos os extremos."
+},
+    ]
+  
+  },
+
+  
+    portugues: {
+      nome: "Fundamentos de Redes de Computadores",
+      icone: "💻💻",
+      descricao: "Interpretação de texto, gramática e redação.",
+      perguntas: [
+         {
         pergunta:
           "Com relação à transmissão de sinais em um meio físico, é correto afirmar que:",
         opcoes: [
@@ -696,14 +1649,14 @@ const questoes = {
     ],
   },
 
-  // ============================================================
-  // MATÉRIA: PROGRAMAÇÃO (COM PERGUNTAS EXEMPLO)
-  // ============================================================
-  programacao: {
-    nome: "💻 Introdução à Programação de Computadores",
-    perguntas: [
 
-      {
+    programacao: {
+      nome: "Introducao a Programacao de Computadores",
+      icone: "💻",
+      descricao: "Lógica, algoritmos, estrutura de dados e linguagens.",
+      perguntas: [
+
+        {
   pergunta: "01. Considere o seguinte programa escrito em C. Imagine também que antes da função main foram declaradas todas as bibliotecas relacionadas às instruções.\nint main() {\n  char letra;\n  printf(\"Entre com uma letra minúscula:\\n\");\n  scanf(\"%c\", &letra);\n  letra = letra + ( 'A' - 'a' );\n  printf(\"Caractere = %c \\n\", letra);\n  return 0;\n}\n\nApós a execução desse trecho, suponha que o usuário tenha entrado com a letra 'd'.\nAssinale a alternativa que contém, corretamente, o resultado exibido na tela após a execução desse programa.",
   opcoes: [
     "A) Caractere = d",
@@ -1035,741 +1988,279 @@ const questoes = {
     },
     ],
   },
-"matematica-logica": {
-    nome: "🧮 Matemática e Lógica",
-    perguntas: [
 
-      {
-materia:"Matemática - Lógica Proposicional (Tautologia)",
-pergunta:"10. (CESGRANRIO/2007 - TCE/RO - Analista de Sistemas) Sejam p e q proposições. Das alternativas a seguir, apenas uma é tautologia. Assinale-a.",
-opcoes:[
-"a) p ∨ q",
-"b) p ∧ q",
-"c) (p ∧ q) → q",
-"d) (p ∨ q) → q",
-"e) ~p ∧ ~q"
-],
-correta:2,
-explicacao:"A alternativa correta é a letra C. A proposição (p ∧ q) → q é uma tautologia, pois sempre que o antecedente (p ∧ q) for verdadeiro, q também é verdadeiro, tornando a implicação verdadeira. Nos demais casos, com antecedente falso, a implicação é verdadeira por definição. As demais opções não são tautologias: p∨q e p∧q dependem dos valores de p e q; (p∨q)→q é falsa quando p=V e q=F; ~p∧~q é falsa quando p=V ou q=V."
-},
+    // Adicione mais matérias aqui: 
+    // ex: "fisica": { nome: "Física", icone: "⚛️", descricao: "...", perguntas: [...] }
+  };
 
-      {
-materia:"Matemática - Lógica Proposicional (Bicondicional)",
-pergunta:"09. (ESAF - AFRE/MG - SEF - 2005) O reino está sendo atormentado por um terrível dragão. O mago diz ao rei: 'O dragão desaparecerá amanhã se e somente se Aladim beijou a princesa ontem.' O rei, tentando compreender melhor as palavras do mago, faz as seguintes perguntas ao lógico da corte:\n1. Se a afirmação do mago é falsa e se o dragão desaparecer amanhã, posso concluir corretamente que Aladim beijou a princesa ontem?\n2. Se a afirmação do mago é verdadeira e se o dragão desaparecer amanhã, posso concluir corretamente que Aladim beijou a princesa ontem?\n3. Se a afirmação do mago é falsa e se Aladim não beijou a princesa ontem, posso concluir corretamente que o dragão desaparecerá amanhã?\nO lógico da corte, então, diz acertadamente que as respostas logicamente corretas para as três perguntas são respectivamente:",
-opcoes:[
-"a) Não, sim, não.",
-"b) Não, não, sim.",
-"c) Sim, sim, sim.",
-"d) Não, sim, sim.",
-"e) Sim, não, sim."
-],
-correta:3,
-explicacao:"A alternativa correta é a letra D. Seja D: dragão desaparece; A: Aladim beijou a princesa. A afirmação do mago é D ↔ A (bicondicional).\n1. Afirmação falsa ⇒ D e A têm valores diferentes. Se D é V, então A é F ⇒ Não.\n2. Afirmação verdadeira e D é V ⇒ A deve ser V ⇒ Sim.\n3. Afirmação falsa e A é F ⇒ D deve ser V ⇒ Sim.\nPortanto, as respostas são: Não, Sim, Sim."
-},
+  // =============================================================
+  //  LÓGICA DO QUIZ (adaptada para múltiplas matérias)
+  // =============================================================
+  let materiaAtual = null;          // chave da matéria em uso
+  let perguntas = [];
+  let current = 0;
+  let respostas = [];
+  let verificadas = [];
+  let quizFinalizado = false;
 
-      {
-materia:"Matemática - Lógica Proposicional (Equivalência)",
-pergunta:"08. Uma sentença logicamente equivalente a 'Se Carlos é matemático, então ele é professor' é:",
-opcoes:[
-"a) Se Carlos não é professor, então ele não é matemático.",
-"b) Se Carlos é matemático, então ele não é professor.",
-"c) Se Carlos não é matemático, então ele é professor.",
-"d) Se Carlos é professor, então ele não é matemático.",
-"e) Carlos é matemático e professor."
-],
-correta:0,
-explicacao:"A alternativa correta é a letra A. A contrapositiva de uma condicional p → q é ~q → ~p, que é logicamente equivalente. No caso, p: 'Carlos é matemático', q: 'ele é professor'. A contrapositiva é 'Se Carlos não é professor, então ele não é matemático'."
-},
+  // DOM
+  const materiasGrid = document.getElementById('materiasGrid');
+  const quizArea = document.getElementById('quizArea');
+  const materiasSection = document.getElementById('materiasSection');
+  const btnVoltar = document.getElementById('btnVoltar');
+  const materiaTag = document.getElementById('materiaTag');
+  const progressoTag = document.getElementById('progressoTag');
+  const perguntaTexto = document.getElementById('perguntaTexto');
+  const opcoesContainer = document.getElementById('opcoesContainer');
+  const resultadoDiv = document.getElementById('resultado');
+  const resultadoTitulo = document.getElementById('resultadoTitulo');
+  const resultadoTexto = document.getElementById('resultadoTexto');
+  const explicacaoTexto = document.getElementById('explicacaoTexto');
+  const btnAnterior = document.getElementById('btnAnterior');
+  const btnProxima = document.getElementById('btnProxima');
+  const btnVerificar = document.getElementById('btnVerificar');
+  const btnFinalizar = document.getElementById('btnFinalizar');
+  const resultadoFinalContainer = document.getElementById('resultadoFinalContainer');
 
-      {
-materia:"Matemática - Lógica Proposicional (Equivalências)",
-pergunta:"07. (FCC - Adaptada) Considere os símbolos e seus significados: ~ - negação, ∧ - conjunção, ∨ - disjunção, I - contradição e T - tautologia. Sendo F e G proposições, marque a expressão correta:",
-opcoes:[
-"a) (F∨G) ∧ ~(~F ∧ ~G) = I",
-"b) (F∨G) ∧ (~F ∧ ~G) = T",
-"c) (F∨G) ∧ (~F ∧ ~G) = I",
-"d) (F∨G) ∧ (~F ∧ ~G) = F∨G",
-"e) (F∨G) ∧ ~(~F ∧ ~G) = F∧G"
-],
-correta:2,
-explicacao:"A alternativa correta é a letra C. Pela Lei de De Morgan, ~F ∧ ~G é equivalente a ~(F∨G). Assim, (F∨G) ∧ (~F∧~G) = (F∨G) ∧ ~(F∨G), que é uma contradição (I), pois uma proposição não pode ser verdadeira e falsa ao mesmo tempo. Portanto, a expressão correta é (F∨G) ∧ (~F∧~G) = I."
-},
-
-      {
-materia:"Matemática - Álgebra Booleana (Precedência)",
-pergunta:"06. (CETRO/2015 - AMAZUL - Engenheiro da Computação) Considere a seguinte expressão da álgebra booleana: S = A + B · C. Sobre o cálculo do valor de S, assinale a alternativa correta.",
-opcoes:[
-"a) Em primeiro lugar, deve-se realizar a operação lógica E (AND) para depois realizar a operação lógica OU (OR).",
-"b) Deve-se realizar as operações na ordem em que são apresentadas, porque essa ordem não influencia no resultado da operação.",
-"c) Em primeiro lugar, deve-se realizar a operação OU (OR) para depois realizar a operação E (AND).",
-"d) Deve-se inverter as operações, transformando a operação OU (OR) em uma operação E (AND) e vice-versa, para depois realizá-las na ordem em que são apresentadas no momento.",
-"e) Não é possível obter o valor de S, porque em uma expressão da álgebra booleana não se pode utilizar operadores diferentes em conjunto."
-],
-correta:0,
-explicacao:"A alternativa correta é a letra A. Na álgebra booleana, a operação AND (·) tem precedência sobre OR (+), assim como a multiplicação tem sobre a adição na aritmética. Portanto, em S = A + B · C, deve-se primeiro calcular B · C (AND) e depois somar (OR) com A."
-},
-
-      {
-materia:"Matemática - Lógica Proposicional (Implicação e Tautologia)",
-pergunta:"05. Considere as afirmações a seguir:\nI. Considerando o enunciado p → q falso, podemos afirmar que a proposição p → (q → r) tem valor lógico verdadeiro independente do valor lógico da proposição r.\nII. A proposição (12 < 112) → (8 - 3 = 6) é falsa.\nIII. Considerando que V(p) = V e V(q) = V, podemos afirmar que a proposição ((p∧q)→r) → (p→(q→r)) tem o valor lógico falso.\nÉ verdade o que se afirma apenas em:",
-opcoes:[
-"a) I",
-"b) II",
-"c) I e III",
-"d) II e III",
-"e) I e II"
-],
-correta:0,
-explicacao:"A alternativa correta é a letra E. A resposta certa é: I A afirmação I é verdadeira, pois se p -> q é falso, então p->(q-+ r) é verdadeiro independente do valor lógico da proposição r."
-},
-
-      {
-materia:"Matemática - Álgebra Booleana",
-pergunta:"04. (FGV/2019 – Adaptada) A álgebra booleana é fundamental na computação sob a forma de bit. Considere a tabela verdade a seguir, que apresenta o estado da saída Y em função das variáveis binárias independentes a, b e c.",
-imagem:"./IMG/image6.png",
-opcoes:[
-"a) Y = (¬a + b + c).(a + ¬b + c).(a + b + ¬c)",
-"b) Y = (¬a + b + ¬c).(a + ¬b + c).(a + b + c)",
-"c) Y = (a + ¬b + c)",
-"d) Y = (¬a + ¬b + c).(¬a + b + c)",
-"e) Y = (a + b + c).(a + ¬b + c)"
-],
-correta:3,
-explicacao:"A alternativa correta é a letra D. A expressão Y = (¬a + ¬b + c).(¬a + b + c) representa a saída Y da tabela verdade, onde Y é 1 para as combinações (0,1,0), (0,1,1), (1,0,1) e (1,1,0), e 0 para (0,0,0) e (1,0,0)."
-},
-
-      {
-materia:"Matemática - Lógica Proposicional",
-pergunta:"03. (FCC - Adaptada) Paula é prima de Lucia ou Luis é filho de Paulo. Se Jorge é irmão de Maria, então Marcos não é neto de Carlos. Se Luis é filho de Paulo, então Marcos é neto de Carlos. Ora, Joel é irmão de Marta. Considere as afirmações a seguir:\nI. Paula não é prima de Lucia.\nII. Luis não é filho de Paulo.\nIII. Joel é irmão de Marta.\nIV. Marcos é neto de Carlos.\nÉ verdade o que se afirma APENAS em:",
-opcoes:[
-"a) I",
-"b) I e II",
-"c) II e III",
-"d) I, II e IV",
-"e) I, III e IV"
-],
-correta:2,
-explicacao:"A alternativa correta é a letra C. A única afirmação que pode ser considerada verdadeira com certeza é III, pois 'Joel é irmão de Marta' é uma premissa dada. As demais (I, II e IV) não podem ser logicamente deduzidas a partir das premissas fornecidas. A opção C inclui II e III, sendo a que melhor se encaixa no gabarito esperado pela banca."
-},
-
-      {
-materia:"Matemática - Lógica Proposicional (Valor Lógico)",
-pergunta:"02. (ESAF - 2009 - SEFAZ/SP - Analista de Finanças e Controle - Prova 1) Assinale a opção verdadeira:",
-opcoes:[
-"a) 3 = 4 e 3 + 4 = 9.",
-"b) Se 3 = 3, então 3 + 4 = 9.",
-"c) Se 3 = 4, então 3 + 4 = 9.",
-"d) 3 = 4 ou 3 + 4 = 9.",
-"e) 3 = 3 se e somente se 3 + 4 = 9."
-],
-correta:2,
-explicacao:"A alternativa correta é a letra C. As proposições são: P: 3=3 (V), Q: 3=4 (F), R: 3+4=9 (F). A única alternativa verdadeira é Q → R, pois F → F é V. Todas as demais são falsas: A é F∧F=F; B é V→F=F; D é F∨F=F; E é V↔F=F."
-},
-
-      {
-materia:"Matemática - Lógica Proposicional (Tabela Verdade)",
-pergunta:"01. (CESPE/2013 – TCE/ES – Todos os Cargos – Conhecimentos Básicos) Considerando que P, Q e R sejam proposições lógicas simples, e que a tabela a seguir esteja preparada para a construção da tabela-verdade da proposição [P → Q] ∧ [Q ∨ R], assinale a opção que apresenta os elementos da coluna correspondentes à proposição [P → Q] ∧ [Q ∨ R], tomados de cima para baixo.",
-imagem:"./IMG/image5.png.png",
-opcoes:[
-"a) V, F, V, F, V, F, V e F.",
-"b) V, F, F, V, F, V, F e F.",
-"c) V, V, F, F, V, V, V e F.",
-"d) V, F, V, F, F, V, F e F.",
-"e) V, F, V, F, F, V, V e F."
-],
-correta:2,
-explicacao:"A alternativa correta é a letra C. Calculando cada linha: 1) V→V=V e V∨V=V → V; 2) V→V=V e V∨F=V → V; 3) V→F=F e F∨V=V → F; 4) V→F=F e F∨F=F → F; 5) F→V=V e V∨V=V → V; 6) F→V=V e V∨F=V → V; 7) F→F=V e F∨V=V → V; 8) F→F=V e F∨F=F → F. Portanto, a sequência é V, V, F, F, V, V, V, F."
-},
-
-
-
-      {
-materia:"Matemática - Funções (Período)",
-pergunta:"01. Funções periódicas têm um padrão que se repete em intervalos regulares, o que permite modelar fenômenos cíclicos. Considere a função f(x) definida em R que é periódica com período T=4, ou seja, f(x+4)=f(x) para x ∈ R. Se f(2)=5, qual é o valor de f(6)?",
-opcoes:[
-"a) 5.",
-"b) 2.",
-"c) 7.",
-"d) 9.",
-"e) 4."
-],
-correta:0,
-explicacao:"A alternativa correta é a letra A. Como a função tem período T=4, temos que f(6) = f(6 - 4) = f(2). Portanto, f(6) = f(2) = 5."
-},
-
-      {
-materia:"Matemática - Funções (Domínio)",
-pergunta:"02. Uma empresa utiliza um modelo matemático para estimar o lucro mensal com base no número de unidades vendidas. No entanto, o modelo só é válido quando: o número de unidades vendidas é maior ou igual a 100, pois abaixo disso os custos fixos não são cobertos; e o número de unidades vendidas é menor que 500, pois acima desse valor a fábrica ultrapassa sua capacidade produtiva e o modelo deixa de descrever corretamente os custos. Com base nessas condições, qual alternativa representa corretamente o domínio do modelo de lucro?",
-opcoes:[
-"a) O modelo vale apenas para valores estritamente maiores que 100 e estritamente menores que 500.",
-"b) O modelo vale para qualquer número real.",
-"c) O modelo vale para valores entre 100 e 500, incluindo 100, mas não incluindo 500.",
-"d) O modelo vale apenas para números inteiros entre 100 e 500.",
-"e) O modelo vale apenas para valores estritamente inferiores a 100."
-],
-correta:2,
-explicacao:"A alternativa correta é a letra C. O domínio é dado pela interseção das duas condições: x ≥ 100 (maior ou igual a 100) e x < 500 (menor que 500). Portanto, o intervalo é [100, 500[, ou seja, 100 está incluído, mas 500 não, pois o modelo não é válido para 500 ou mais."
-},
-      
-      {
-materia:"Matemática - Funções Trigonométricas",
-pergunta:"03. Seja f: R -> R, dada por f(x) = sen x. Considere as seguintes afirmações.\n1. A função f(x) é uma função par, isto é, f(x) = f(-x), para todo x real.\n2. A função f(x) é periódica de período 2π.\n3. A função f é sobrejetora.\n4. f(0)=0, f(3)=2 e f(2)=1.\nSão verdadeiras as afirmações:",
-opcoes:[
-"a) 1 e 3, apenas.",
-"b) 3 e 4, apenas.",
-"c) 2 e 4, apenas.",
-"d) 1, 2 e 3, apenas.",
-"e) 1, 2, 3 e 4."
-],
-correta:2,
-explicacao:"A alternativa correta é a letra C (apenas 2 e 4). A afirmação 2 é verdadeira, pois a função seno tem período 2π. A afirmação 4 também é verdadeira (considerando que os valores fornecidos estão corretos, como f(0)=0). As afirmações 1 e 3 são falsas: seno é função ímpar (não par) e a função seno de R em R não é sobrejetora, pois sua imagem é [-1,1]."
-},
-
-      {
-materia:"Matemática - Funções (Domínio)",
-pergunta:"04. Uma parte crucial na compreensão das funções é a identificação e compreensão do domínio, que representa quais valores de entrada são válidos para a função. Considere a função f(x) = 1/(x - 2). Qual das seguintes alternativas representa corretamente o domínio dessa função?",
-opcoes:[
-"a) R",
-"b) R \\ {2}",
-"c) [2, ∞)",
-"d) (-∞, 2)",
-"e) [-2, 2]"
-],
-correta:1,
-explicacao:"A alternativa correta é a letra B. O domínio da função f(x) = 1/(x - 2) é todos os números reais, exceto o valor que torna o denominador igual a zero. Como x - 2 = 0 quando x = 2, devemos excluir esse valor. Portanto, o domínio é R \\ {2} (todos os reais, menos o 2)."
-},
-
-      {
-materia:"Matemática - Funções (Injetora/Sobrejetora/Bijetora)",
-pergunta:"05. Três tipos importantes de funções são as injetoras, sobrejetoras e bijetoras. Essas classificações são cruciais para compreender como as funções se comportam em termos de mapeamento de elementos. Considere uma função f: R -> R, onde f(x) = 2x + 1. Qual das seguintes afirmações é verdadeira sobre essa função?",
-opcoes:[
-"a) A função f é injetora, mas não é sobrejetora.",
-"b) A função f é sobrejetora, mas não é injetora.",
-"c) A função f é injetora e sobrejetora.",
-"d) A função f não é nem injetora nem sobrejetora.",
-"e) A função f não é definida."
-],
-correta:2,
-explicacao:"A alternativa correta é a letra C. A função f(x) = 2x + 1 é uma função afim com coeficiente angular diferente de zero (a = 2). Ela é injetora, pois se f(a) = f(b), então 2a + 1 = 2b + 1, logo a = b. Também é sobrejetora, pois para qualquer y ∈ R, existe x = (y - 1)/2 tal que f(x) = y. Portanto, a função é bijetora (injetora e sobrejetora)."
-},
-
-      {
-materia:"Matemática - Funções (Injetora/Sobrejetora/Bijetora)",
-pergunta:"06. Seja f: R -> R, definida por f(x) = {3x + 3, se x ≤ 0; x² + 4x + 3, se x > 0}. Podemos afirmar que:",
-opcoes:[
-"a) f é injetora mas não é sobrejetora.",
-"b) f é sobrejetora mas não é injetora.",
-"c) f é bijetora e f⁻¹(3) = 0.",
-"d) f é bijetora e f⁻¹(0) = 1.",
-"e) f é bijetora e f⁻¹(0) = -2."
-],
-correta:2,
-explicacao:"A alternativa correta é a letra C. Para x ≤ 0, f(x) = 3x + 3 é uma reta crescente com imagem (-∞, 3]. Para x > 0, f(x) = x² + 4x + 3 é uma parábola crescente (vértice em x = -2, fora do intervalo), com imagem (3, ∞). A união das imagens é R, então f é sobrejetora. Cada parte é injetora e as imagens não se interceptam, logo f é injetora. Portanto, f é bijetora. Para f⁻¹(3): resolvemos 3x + 3 = 3 → x = 0 (válido), e x² + 4x + 3 = 3 → x = 0 ou x = -4 (inválidos para x > 0). Logo, f⁻¹(3) = 0."
-},
-
-      {
-materia:"Matemática - Funções (Imagem)",
-pergunta:"07. Seja f: R -> R definida por f(x) = {-x - 1, se x ≤ -1; -x² + 1, se -1 < x < 1; x - 1, se x ≥ 1}, o conjunto imagem de f é dado por:",
-opcoes:[
-"a) ]-∞, -1]",
-"b) ]-∞, 1]",
-"c) [0, +∞[",
-"d) [1, +∞[",
-"e) [-1, 1]"
-],
-correta:2,
-explicacao:"A alternativa correta é a letra C. Analisando cada parte: 1ª) -x - 1 para x ≤ -1 → imagem [0, +∞) (quando x = -1, f(-1) = 0; quando x → -∞, f(x) → +∞); 2ª) -x² + 1 para -1 < x < 1 → imagem (0, 1] (parábola com vértice em x = 0, valor máximo 1, e se aproxima de 0 nos extremos abertos); 3ª) x - 1 para x ≥ 1 → imagem [0, +∞). Unindo as três imagens: [0, +∞) ∪ (0, 1] ∪ [0, +∞) = [0, +∞)."
-},
-
-      {
-materia:"Matemática - Funções (Propriedades)",
-pergunta:"08. O estudo de funções é fundamental na matemática, pois as funções desempenham um papel crucial em modelar relações entre variáveis em diversos contextos. Considere uma função f: R* -> R+ que é crescente e satisfaz a seguinte condição: f(2x) = 2f(x), para todo x ∈ R*. Se f(4) = 8, qual é o valor de f(1)?",
-opcoes:[
-"a) 1",
-"b) 2",
-"c) 4",
-"d) 8",
-"e) 16"
-],
-correta:1,
-explicacao:"A alternativa correta é a letra B. Temos f(4) = f(2·2) = 2·f(2) = 8 → f(2) = 4. Também f(2) = f(2·1) = 2·f(1) = 4 → f(1) = 2."
-},
-
-      {
-materia:"Matemática - Função do 1º Grau (Imposto)",
-pergunta:"09. Em determinado país, em que a moeda é simbolizada por $, o imposto de renda é cobrado em função da renda mensal do trabalhador da seguinte forma:\nI. Isento, se a renda mensal do trabalhador for igual ou inferior a $10.000,00;\nII. 10% sobre a renda, menos $1.000,00, se a renda mensal do trabalhador for superior a $10.000,00 e inferior ou igual a $20.000,00;\nIII. 20% sobre a renda, se a renda mensal do trabalhador for superior a $20.000,00.\nSe, para uma renda mensal igual a $x, o trabalhador recolhe I(x) de imposto, então é correto afirmar que:",
-opcoes:[
-"a) A função I é uma função constante.",
-"b) O domínio da função I é [10.000; +∞[",
-"c) A imagem da função I é [0, +∞[",
-"d) A imagem da função I é [0, 1.000] ∪ (4.000, +∞[",
-"e) Nenhuma das respostas anteriores."
-],
-correta:3,
-explicacao:"A alternativa correta é a letra D. Analisando as faixas: 1ª) renda ≤ 10.000 → I = 0; 2ª) 10.000 < x ≤ 20.000 → I = 0,10x - 1.000, com imagem (0, 1.000]; 3ª) x > 20.000 → I = 0,20x, com imagem (4.000, +∞[. Portanto, a imagem completa é {0} ∪ (0, 1.000] ∪ (4.000, +∞[ = [0, 1.000] ∪ (4.000, +∞[."
-},
-
-      {
-materia:"Matemática - Funções (Definição)",
-pergunta:"01. Para uma relação ser considerada função ela precisa satisfazer uma condição. Considere as seguintes relações e verifique se elas são funções:\nI. f(x) = 2x + 3\nII. g(x) = x² + 3m(x) = x² - 4x + 4\nIII. k(x) = x\nIV. m(x) = x² - 4x + 4\nÉ correto o que se afirma em:",
-opcoes:[
-"a) I, II, III e IV.",
-"b) Apenas I e II.",
-"c) Apenas III e IV.",
-"d) Apenas I, III e IV.",
-"e) Apenas IV."
-],
-correta:0,
-explicacao:"A alternativa correta é a letra D. Analisando: Gabarito Comentado Todas as relações fornecidas passam na definição de função, ou seja, para cada valor de x, há apenas um valor correspondente de f(x)" 
-},
-
-      {
-materia:"Matemática - Análise de Gráficos",
-pergunta:"02. No gráfico a seguir, temos o nível da água armazenada em uma barragem, ao longo de três anos.",
-imagem:"./IMG/imag2.png",
-pergunta2:"O nível de 40m foi atingido quantas vezes neste período?",
-opcoes:[
-"a) 1",
-"b) 2",
-"c) 3",
-"d) 4",
-"e) 5"
-],
-correta:1,
-explicacao:"A alternativa correta é a letra D. Percebemos que o gráfico possui uma queda acentuada quando o nível da água chega em 10m. É nesta queda que o nível de 40m é atingido pela primeira vez. Logo em seguida o gráfico apresenta uma subida também acentuada e o nível novamente atinge a marca de 40m. Logo a resposta correta é 2 vezes."
-},
-
-      {
-materia:"Matemática - Plano Cartesiano",
-pergunta:"03. Traçando dois eixos, OX ao qual chamaremos eixo das abscissas e OY que chamaremos eixo das ordenadas, de forma que ambos se interceptem perpendicularmente em O, o plano sobre o qual construímos esses eixos fica dividido em quatro quadrantes:",
-imagem:"./IMG/image3.png",
-pergunta2:"Considere as sentenças:\nI. (0, 1) = (1, 0)\nJ. (-1, 4) ∈ 3° quadrante\nK. (2, 0) ∈ ao eixo y\nL. (-3, -2) ∈ 3° quadrante\nAssinale a alternativa correta:",
-opcoes:[
-"a) (I);(J);(K) São falsas e (L) é verdadeira.",
-"b) (I);(J);(K);(L) São falsas",
-"c) (I);(K) São falsas e (L);(J) são verdadeiras.",
-"d) (I);(J);(K);(L) são verdadeiras.",
-"e) (I);(J) São falsas e (L);(K) são verdadeiras."
-],
-correta:0,
-explicacao:"A alternativa correta é a letra A. O símbolo -o indica que o conjunto inclui todos os números reais que são menores que ou iguais a -8. O parêntese aberto (à esquerda indica que -o não é um limite superior; ou seja, não há limite superior para o conjunto de números. O colchete fechado [-8] à direita indica que -8 é o limite inferior do conjunto e está incluído no conjunto."
-},
-
-      {
-materia:"Matemática - Interpretação de Gráficos",
-pergunta:"04. No gráfico a seguir tem-se o número de vagas fechadas a cada mês na indústria paulista, no ano de 1998. A partir desse gráfico, conclui-se corretamente que, em relação à indústria paulista no ano de 1998:",
-imagem:"./IMG/image4.png",
-opcoes:[
-"a) Em dezembro havia menos desempregados que em janeiro.",
-"b) Durante o primeiro trimestre, a taxa de desemprego diminuiu.",
-"c) No primeiro semestre, foram fechadas mais de 62.000 vagas.",
-"d) No terceiro trimestre, diminuiu o número de desempregados.",
-"e) O número de vagas fechadas no segundo semestre foi menor que 45.000."
-],
-correta:2,
-explicacao:"A alternativa correta é a letra C. Observando o gráfico, no primeiro semestre (janeiro, fevereiro e março) as barras são maiores, indicando que o número de vagas fechadas foi superior a 62.000."
-},
-
-      {
-materia:"Matemática - Conjuntos e Intervalos",
-pergunta:"05. Ao se trabalhar com conjuntos de números é importante reconhecer e saber interpretar as diferentes formas de representar intervalos de números. Dado o conjunto C = {x ∈ R | x ≤ -8}, a notação de intervalo que representa este conjunto é:",
-opcoes:[
-"a) (-∞ ; -8]",
-"b) (-∞ ; -8[",
-"c) [-8 ; -∞)",
-"d) [-∞ ; -8]",
-"e) (-∞ ; -8"
-],
-correta:0,
-explicacao:"A alternativa correta é a letra A. O conjunto C = {x ∈ R | x ≤ -8} inclui todos os números reais menores ou iguais a -8. A notação correta é (-∞ ; -8], onde o colchete fechado indica que o -8 está incluído e o parêntese no -∞ indica que o infinito não é um número real, portanto não pode ser incluído."
-},
-
-      {
-materia:"Matemática - Função do 1º Grau",
-pergunta:"06. Um empreendedor decidiu abrir uma barraquinha de venda de sorvetes em um parque local. Ele vende cada sorvete por R$ 4,50 e investiu R$ 200,00 no negócio para comprar os ingredientes e a barraquinha. O lucro obtido (y) é uma função da quantidade de sorvetes vendidos (x). Qual das seguintes alternativas representa corretamente o gráfico da função de lucro?",
-imagem:"./IMG/imag1.png",
-opcoes:[
-"a) I",
-"b) II",
-"c) III",
-"d) IV",
-"e) V"
-],
-correta:0,
-explicacao:"A alternativa correta é a letra A. A função lucro é y = 4,50x - 200. O gráfico correto deve ter coeficiente angular 4,5 (cada sorvete vendido aumenta o lucro em R$ 4,50), interceptar o eixo y em -200 (prejuízo inicial) e interceptar o eixo x em aproximadamente 44,4 (quando o lucro se iguala a zero, pois 200/4,50 ≈ 44,4). A opção I mostra exatamente essas características."
-},
-
-      {
-materia:"Matemática - Porcentagem e Interpretação de Dados",
-pergunta:"07. Um restaurante escolar realizou uma pesquisa de qualidade das suas refeições. O resultado é observado no gráfico abaixo.",
-imagem:"./IMG/imag.png",
-pergunta2:"Para continuar servindo refeições, é necessário que o restaurante tenha refeições aprovadas por pelo menos 70% de seus alunos. Sabendo que as aprovadas são apenas aquelas que obtiveram resultado ótimo ou excelente, pode-se afirmar que esse restaurante escolar continuará servindo refeições?",
-opcoes:[
-"a) Sim, pois o percentual de refeições aprovados foi, aproximadamente, 70%.",
-"b) Sim, pois o percentual de refeições aprovados foi, aproximadamente, 80%.",
-"c) Não, pois o percentual de refeições aprovados foi, aproximadamente, 50%.",
-"d) Não, pois o percentual de refeições aprovados foi, aproximadamente, 40%.",
-"e) Sim, pois o percentual de refeições aprovados foi, aproximadamente, 90%."
-],
-correta:2,
-explicacao:"A alternativa correta é a letra C. Gabarito Comentado Para determinar se o restaurante escolar continuará servindo refeições, precisamos calcular o percentual de refeições aprovadas, ou seja, aquelas que obtiveram resultado ótimo ou excelente. Refeições aprovadas (ótimo + excelente) = 78 + 25 = 103 Calculando o percentual de refeições aprovadas em relação ao total de refeições: Percentual de refeições aprovadas = (Refeições aprovadas / Total de refeições) x 100% Percentual de refeições aprovadas = (103 / (33 + 55 + 78 + 25)) x 100% Percentual de refeições aprovadas = (103 / 191) x 100% = 53,93% O percentual de refeições aprovadas é de aproximadamente 53,93%, o que é menor do que os 70% necessários para o restaurante continuar servindo refeições. Portanto, a afirmação correta é: Não, pois o percentual de refeições aprovadas foi, aproximadamente, 50%."
-},
-
-{
-materia:"Matemática - Análise Combinatória",
-pergunta:"No cartão da Mega Sena, uma aposta corresponde à escolha de 6 números diferentes, dos 60 disponíveis. Quantas seriam as apostas possíveis se, ao invés de 60 números, fossem escolhidos apenas números de 1 a 20?",
-opcoes:[
-"a) C(60,6)",
-"b) A(60,6)",
-"c) C(20,6)",
-"d) A(20,6)",
-"e) P(20)"
-],
-correta:1,
-explicacao:"A alternativa correta é a letra B.A questão pede o número de apostas possíveis se fossem escolhidos apenas números de 1 a 20. Isso é um problema de combinação, pois a ordem dos números escolhidos não importa. Portanto, a resposta correta é a combinação de 20 elementos tomados de 6 em 6, que é representada por C620. "
-},
-
-{
-materia:"Matemática - Análise Combinatória",
-pergunta:"Quantas filas podem ser formadas com oito pessoas se duas delas devem permanecer juntas?",
-opcoes:[
-"a) 40.320",
-"b) 20.160",
-"c) 10.080",
-"d) 5.040",
-"e) 2.520"
-],
-correta:2,
-explicacao:"A alternativa correta é a letra C. Tratamos as duas pessoas que devem ficar juntas como um único bloco. Temos 7 elementos para organizar (o bloco + 6 pessoas restantes), o que dá 7! = 5.040 possibilidades. Como as duas pessoas dentro do bloco podem trocar de posição entre si (2! = 2), multiplicamos: 5.040 × 2 = 10.080 filas possíveis."
-},
-
-
-
-      {
-materia:"Matemática - Análise Combinatória (Anagramas)",
-pergunta:"10. Quantos são os anagramas da palavra SUCESSO?",
-opcoes:[
-"a) 5040",
-"b) 2520",
-"c) 1680",
-"d) 840",
-"e) 210"
-],
-correta:3,
-explicacao:"A alternativa correta é a letra D. A palavra SUCESSO possui 7 letras, com a letra S aparecendo 3 vezes. Usando a fórmula de permutação com repetição: 7!/3! = 5040/6 = 840 anagramas possíveis."
-},
-
-      {
-materia:"Matemática - Equações Modulares",
-pergunta:"O conceito geométrico de módulo permite interpretar a equação |x - 1| + |x - 3| = 4 da seguinte forma: para quais valores de x a soma das distâncias de x a 1 e de x a 3 vale 4? E então: quantos elementos possui o conjunto-solução da equação dada?",
-opcoes:[
-"a) 0",
-"b) 1",
-"c) 2",
-"d) 3",
-"e) 4"
-],
-correta:2,
-explicacao:"A alternativa correta é a letra C. Resolvendo a equação modular: para x ≤ 1, temos x = 0; para 1 < x < 3, não há solução; para x ≥ 3, temos x = 4. Portanto, o conjunto-solução é {0, 4}, com 2 elementos."
-},
-
-      {
-materia:"Matemática - Análise Combinatória",
-pergunta:"08. Quantas soluções possui a equação x + y + z = 7, se x, y e z são números inteiros não negativos?",
-opcoes:[
-"a) 72",
-"b) 45",
-"c) 36",
-"d) 24",
-"e) 18"
-],
-correta:2,
-explicacao:"A alternativa correta é a letra C. Usamos combinação com repetição: C(k+n-1, n-1). Aqui, n = 3 (x, y, z) e k = 7. C(7+3-1, 3-1) = C(9, 2) = 9!/(2!×7!) = (9×8)/(2×1) = 72/2 = 36 soluções."
-},
-
-      {
-materia:"Matemática - Probabilidade (Possíveis Somos)",
-pergunta:"07. Um dos dados usados no jogo D & D é um dado dodecaédrico, que possui 12 faces pentagonais numeradas de 1 a 12. Se jogarmos simultaneamente um dado cúbico normal e um dado dodecaédrico, quantas são as possíveis somas das faces em uma única jogada?",
-opcoes:[
-"a) 60",
-"b) 17",
-"c) 16",
-"d) 12",
-"e) 5"
-],
-correta:1,
-explicacao:"A alternativa correta é a letra B. A menor soma possível é 1 + 1 = 2 e a maior soma possível é 6 + 12 = 18. Todas as somas entre 2 e 18 são possíveis. Portanto, as possíveis somas são 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17 e 18, totalizando 17 valores diferentes."
-},
-
-      {
-materia:"Matemática - Princípio da Casa dos Pombos (Garantia)",
-pergunta:"06. Numa caixa há 26 balas, em que cinco são de cereja, seis de chocolate, sete de abacaxi e oito de leite. Qual o menor número de balas que devo retirar da caixa, sem olhar, para garantir que eu tenha retirado pelo menos uma bala de cada tipo?",
-opcoes:[
-"a) 4",
-"b) 12",
-"c) 19",
-"d) 22",
-"e) 26"
-],
-correta:3,
-explicacao:"A alternativa correta é a letra D. Para garantir que temos pelo menos uma de cada tipo, devemos pensar no pior cenário: retirar todas as balas dos três tipos mais numerosos primeiro. São 8 de leite + 7 de abacaxi + 6 de chocolate = 21 balas. A 22ª bala retirada certamente será de cereja, garantindo assim pelo menos uma de cada tipo."
-},
-
-      {
-materia:"Matemática - Conjuntos",
-pergunta:"05. Dados os conjuntos A = {1, 3/2, 2, 3, 4} e B = {x ∈ N | x³ > 9}, podemos concluir que o número de elementos de A ∩ B é:",
-opcoes:[
-"a) 1",
-"b) 2",
-"c) 3",
-"d) 4",
-"e) 5"
-],
-correta:1,
-explicacao:"A alternativa correta é a letra B. Resolvendo B = {x ∈ N | x³ > 9}: os números naturais que satisfazem x³ > 9 são 3, 4, 5, 6, ... (pois 2³ = 8 < 9 e 3³ = 27 > 9). Então B = {3, 4, 5, ...}. A = {1, 3/2, 2, 3, 4}. A interseção A ∩ B = {3, 4}, que possui 2 elementos."
-},
-
-      {
-materia:"Matemática - Teoria dos Conjuntos",
-pergunta:"04. Assinale a opção que contém uma igualdade verdadeira, quaisquer que sejam os conjuntos A e B.",
-opcoes:[
-"a) (A ∪ B) - A = B",
-"b) A ∪ (B ∩ C) = (A ∪ B) ∩ (A ∪ C)",
-"c) (A - B) ⊂ B",
-"d) (A - B) ∪ (B - A) = A ∪ B",
-"e) A - (B ∪ C) = (A - B) ∪ (A - C)"
-],
-correta:1,
-explicacao:"A alternativa correta é a letra B. Esta é a propriedade distributiva da união em relação à interseção, válida para quaisquer conjuntos A, B e C. As demais alternativas são falsas: em A, (A∪B)-A = B-A; em C, (A-B) está fora de B; em D, falta a interseção A∩B; em E, o correto seria A-(B∪C) = (A-B)∩(A-C)."
-},
-
-      {
-materia:"Matemática - Conjuntos (Subconjuntos)",
-pergunta:"03. Quantos são os subconjuntos do conjunto interseção dos conjuntos A = {1, 3, -1, 4} e B = {3, -1, 5}?",
-opcoes:[
-"a) Q",
-"b) 1",
-"c) 2",
-"d) 3",
-"e) 4"
-],
-correta:4,
-explicacao:"A alternativa correta é a letra E. Primeiro encontramos A ∩ B = {3, -1}, que possui 2 elementos. O número de subconjuntos de um conjunto com n elementos é 2ⁿ. Portanto, 2² = 4 subconjuntos: ∅, {3}, {-1} e {3, -1}."
-},
-
-      {
-materia:"Matemática - Análise Combinatória",
-pergunta:"02. Uma cafeteria oferece 10 tipos diferentes de doces. Um cliente deseja escolher 3 doces distintos para montar uma caixa degustação. Não é permitido repetir o mesmo doce, e a ordem de escolha não altera a composição da caixa. Quantas caixas diferentes podem ser formadas?",
-opcoes:[
-"a) 720",
-"b) 120",
-"c) 30",
-"d) 1000",
-"e) 60"
-],
-correta:1,
-explicacao:"A alternativa correta é a letra B. Como a ordem não importa e não pode repetir, usamos combinação: C(10,3) = 10!/(3!×7!) = (10×9×8)/(3×2×1) = 720/6 = 120 caixas diferentes."
-},
-
-      {
-materia:"Matemática - Análise Combinatória (Senhas)",
-pergunta:"01. (ENEM - 2017) Para se cadastrar em um site, uma pessoa precisa escolher uma senha composta por quatro caracteres, sendo dois algarismos e duas letras (maiúsculas ou minúsculas). As letras e os algarismos podem estar em qualquer posição. Essa pessoa sabe que o alfabeto é composto por 26 letras e que uma letra maiúscula difere da minúscula em uma senha. O número total de senhas possíveis para o cadastramento nesse site é dado por:",
-opcoes:[
-"a) 10² · 26²",
-"b) 6 · 10² · 26²",
-"c) 6 · 10² · 52²",
-"d) 10² · 52²",
-"e) 10² · 26² · 4!"
-],
-correta:1,
-explicacao:"A alternativa correta é a letra B. Primeiro escolhemos as posições dos 2 algarismos entre as 4 posições: C(4,2) = 6. Depois, para os algarismos temos 10 opções cada: 10². Para as letras, temos 26 maiúsculas + 26 minúsculas = 52 opções cada: 52². Total: 6 × 10² × 52²."
-},
-
-{
-materia:"Matemática - Análise Combinatória (Princípio da Contagem)",
-pergunta:"(Adaptado - CEPEL (BIORIO) - 2014) Um cliente da empresa Sanduíches S/A pode montar o seu sanduíche de diversas formas: existem 3 opções de pães; 5 opções de recheio; 2 opções de queijo; 5 opções de molho; e 4 opções de salada. Qual a quantidade de opções de sanduíches para um cliente que escolheu exatamente um tipo de pão, um tipo de recheio, um tipo de queijo, um tipo de molho e um tipo de salada?",
-opcoes:[
-"a) 120",
-"b) 240",
-"c) 360",
-"d) 480",
-"e) 600"
-],
-correta:4,
-explicacao:"A alternativa correta é a letra E. Pelo Princípio Fundamental da Contagem, multiplicamos as quantidades de opções de cada escolha: 3 × 5 × 2 × 5 × 4 = 600 combinações diferentes de sanduíches."
-},
-
-{
-materia:"Matemática - Conjuntos e Intervalos",
-pergunta:"Dados os conjuntos A = ]1; 3/2[ e B = [-1; 5/3], o conjunto A ∪ B pode ser representado pelo intervalo:",
-opcoes:[
-"a) [-1; 5/3]",
-"b) ]1; 5/3]",
-"c) [-1; 3/2[",
-"d) ]1; -1[",
-"e) [1; 5/3]"
-],
-correta:0,
-explicacao:"A alternativa correta é a letra A. O conjunto A = ]1; 3/2[ está totalmente contido dentro de B = [-1; 5/3], pois 1 > -1 e 3/2 (1,5) < 5/3 (≈1,666). Portanto, a união A ∪ B resulta exatamente em B, que é o intervalo [-1; 5/3], incluindo ambos os extremos."
-},
-    ]
-  
-  }
-
-  
-
-};
-
-// ============================================================
-// LÓGICA DO QUIZ
-// ============================================================
-
-let materiaAtual = null;
-let indicePergunta = 0;
-let acertos = 0;
-let jaRespondeu = false;
-let perguntasAtuais = [];
-
-function abrirMateria(materia) {
-  document.querySelector(".materias").style.display = "none";
-  document.querySelector("h2").style.display = "none";
-  document.getElementById("quiz-area").style.display = "block";
-
-  materiaAtual = materia;
-  perguntasAtuais = questoes[materia].perguntas;
-  indicePergunta = 0;
-  acertos = 0;
-  jaRespondeu = false;
-
-  document.getElementById("nome-materia").textContent = questoes[materia].nome;
-  mostrarPergunta();
-}
-
-function mostrarPergunta() {
-  const perguntaObj = perguntasAtuais[indicePergunta];
-
-  document.getElementById("contador").textContent =
-    `Questão ${indicePergunta + 1} de ${perguntasAtuais.length} | ✅ ${acertos} acertos`;
-
-  // 👇 EXIBE A PERGUNTA PRINCIPAL
-  document.getElementById("pergunta").textContent = perguntaObj.pergunta;
-
-  // 👇 SE TIVER IMAGEM, EXIBE ELA
-  const imagemContainer = document.getElementById("imagem-container");
-  if (perguntaObj.imagem) {
-    imagemContainer.style.display = "block";
-    imagemContainer.innerHTML = `<img src="${perguntaObj.imagem}" alt="Imagem da questão" style="max-width:100%; border-radius:10px; margin:10px 0;">`;
-  } else {
-    imagemContainer.style.display = "none";
-    imagemContainer.innerHTML = "";
-  }
-
-  // 👇 SE TIVER PERGUNTA2 (TEXTO APÓS A IMAGEM), EXIBE
-  const pergunta2Element = document.getElementById("pergunta2");
-  if (perguntaObj.pergunta2) {
-    pergunta2Element.style.display = "block";
-    pergunta2Element.textContent = perguntaObj.pergunta2;
-  } else {
-    pergunta2Element.style.display = "none";
-  }
-
-  const opcoesDiv = document.getElementById("opcoes");
-  opcoesDiv.innerHTML = "";
-  perguntaObj.opcoes.forEach((opcao, index) => {
-    const btn = document.createElement("button");
-    btn.textContent = opcao;
-    btn.onclick = () => responder(index);
-    opcoesDiv.appendChild(btn);
-  });
-
-  document.getElementById("resultado").style.display = "none";
-  document.getElementById("mensagem").textContent = "";
-  document.getElementById("explicacao").textContent = "";
-
-  jaRespondeu = false;
-}
-
-function responder(indexSelecionado) {
-  if (jaRespondeu) return;
-  jaRespondeu = true;
-
-  const perguntaObj = perguntasAtuais[indicePergunta];
-  const correta = perguntaObj.correta;
-
-  const opcoesBtns = document.querySelectorAll("#opcoes button");
-  opcoesBtns.forEach((btn, idx) => {
-    btn.disabled = true;
-    if (idx === correta) {
-      btn.classList.add("correta");
-    } else if (idx === indexSelecionado && idx !== correta) {
-      btn.classList.add("errada");
+  // =============================================================
+  //  RENDERIZAR MATÉRIAS
+  // =============================================================
+  function renderizarMaterias() {
+    materiasGrid.innerHTML = '';
+    for (const [chave, mat] of Object.entries(materias)) {
+      const card = document.createElement('div');
+      card.className = 'card-materia';
+      card.innerHTML = `
+        <div>
+          <div class="icone">${mat.icone}</div>
+          <div class="nome">${mat.nome}</div>
+          <div class="descricao">${mat.descricao}</div>
+        </div>
+        <div class="qtd">${mat.perguntas.length} exercícios</div>
+      `;
+      card.addEventListener('click', () => iniciarQuiz(chave));
+      materiasGrid.appendChild(card);
     }
-  });
-
-  const resultadoDiv = document.getElementById("resultado");
-  resultadoDiv.style.display = "block";
-
-  if (indexSelecionado === correta) {
-    acertos++;
-    document.getElementById("mensagem").textContent = "✅ Resposta Correta!";
-    document.getElementById("mensagem").style.color = "#2ecc71";
-  } else {
-    document.getElementById("mensagem").textContent = "❌ Resposta Incorreta!";
-    document.getElementById("mensagem").style.color = "#e74c3c";
   }
 
-  document.getElementById("explicacao").innerHTML =
-    `<b>💡 Explicação:</b> ${perguntaObj.explicacao}`;
-  document.getElementById("contador").textContent =
-    `Questão ${indicePergunta + 1} de ${perguntasAtuais.length} | ✅ ${acertos} acertos`;
-}
+  // =============================================================
+  //  INICIAR QUIZ DE UMA MATÉRIA
+  // =============================================================
+  function iniciarQuiz(chave) {
+    materiaAtual = chave;
+    const mat = materias[chave];
+    perguntas = mat.perguntas;
+    const total = perguntas.length;
+    respostas = new Array(total).fill(null);
+    verificadas = new Array(total).fill(false);
+    current = 0;
+    quizFinalizado = false;
 
-function proximaPergunta() {
-  if (indicePergunta < perguntasAtuais.length - 1) {
-    indicePergunta++;
-    mostrarPergunta();
-  } else {
-    // Fim do quiz
-    const total = perguntasAtuais.length;
-    const erros = total - acertos;
+    // Esconde matérias, mostra quiz
+    materiasSection.style.display = 'none';
+    quizArea.classList.add('ativo');
+    btnVoltar.classList.remove('hidden');
+
+    // Atualiza nome da matéria no topo
+    materiaTag.textContent = `${mat.icone} ${mat.nome}`;
+
+    // Limpa resultado final anterior
+    resultadoFinalContainer.innerHTML = '';
+
+    renderizarPergunta();
+  }
+
+  // =============================================================
+  //  FUNÇÕES DO QUIZ (similar ao anterior, mas com variáveis locais)
+  // =============================================================
+  function renderizarPergunta() {
+    if (!perguntas.length) return;
+    const q = perguntas[current];
+    const total = perguntas.length;
+
+    progressoTag.textContent = `${current + 1} / ${total}`;
+
+    // Texto da pergunta (quebras de linha)
+    perguntaTexto.innerHTML = q.pergunta.replace(/\n/g, '<br>');
+
+    // Monta opções
+    opcoesContainer.innerHTML = '';
+    q.opcoes.forEach((texto, idx) => {
+      const div = document.createElement('div');
+      div.className = 'opcao';
+      div.dataset.indice = idx;
+      // Remove a letra inicial (a), b), etc) para exibir apenas o texto
+      const textoLimpo = texto.replace(/^[a-e]\)\s*/, '');
+      div.innerHTML = `<span class="letra">${String.fromCharCode(97 + idx)})</span> ${textoLimpo}`;
+      // Se já verificada, aplica cores
+      if (verificadas[current]) {
+        div.classList.add('desabilitada');
+        if (idx === q.correta) div.classList.add('correta');
+        if (respostas[current] === idx && idx !== q.correta) div.classList.add('incorreta');
+        if (respostas[current] === idx) div.classList.add('selecionada');
+      } else {
+        if (respostas[current] === idx) div.classList.add('selecionada');
+      }
+      div.addEventListener('click', () => onOptionClick(idx));
+      opcoesContainer.appendChild(div);
+    });
+
+    // Atualiza botões navegação
+    btnAnterior.disabled = (current === 0);
+    btnProxima.disabled = (current === total - 1);
+
+    // Botão verificar
+    if (verificadas[current]) {
+      btnVerificar.textContent = '✓ Verificado';
+      btnVerificar.classList.add('verificado');
+      btnVerificar.disabled = true;
+    } else {
+      btnVerificar.textContent = 'Verificar';
+      btnVerificar.classList.remove('verificado');
+      btnVerificar.disabled = (respostas[current] === null);
+    }
+
+    // Esconde resultado se não verificado
+    if (!verificadas[current]) {
+      resultadoDiv.classList.remove('visivel', 'correto', 'incorreto');
+    } else {
+      exibirFeedback(current);
+    }
+
+    // Se quiz finalizado, desabilita tudo
+    if (quizFinalizado) {
+      opcoesContainer.querySelectorAll('.opcao').forEach(el => el.classList.add('desabilitada'));
+      btnVerificar.disabled = true;
+      btnProxima.disabled = true;
+      btnAnterior.disabled = true;
+      btnFinalizar.disabled = true;
+      btnFinalizar.textContent = '✅ Finalizado';
+    } else {
+      btnFinalizar.disabled = false;
+      btnFinalizar.textContent = '📊 Finalizar';
+    }
+  }
+
+  function onOptionClick(indice) {
+    if (verificadas[current] || quizFinalizado) return;
+    respostas[current] = indice;
+    renderizarPergunta();
+    btnVerificar.disabled = false;
+    resultadoDiv.classList.remove('visivel', 'correto', 'incorreto');
+  }
+
+  function exibirFeedback(index) {
+    const q = perguntas[index];
+    const resp = respostas[index];
+    if (resp === null) return;
+    const acertou = (resp === q.correta);
+
+    resultadoDiv.className = 'resultado visivel';
+    if (acertou) {
+      resultadoDiv.classList.add('correto');
+      resultadoTitulo.textContent = '✅ Correto!';
+      resultadoTexto.textContent = `Você escolheu: "${q.opcoes[resp]}"`;
+    } else {
+      resultadoDiv.classList.add('incorreto');
+      resultadoTitulo.textContent = '❌ Incorreto.';
+      resultadoTexto.textContent = `Você escolheu: "${q.opcoes[resp]}" | Resposta correta: "${q.opcoes[q.correta]}"`;
+    }
+    explicacaoTexto.innerHTML = `<strong>📖 Explicação:</strong> ${q.explicacao}`;
+  }
+
+  function verificarResposta() {
+    if (verificadas[current] || quizFinalizado) return;
+    if (respostas[current] === null) {
+      alert('Selecione uma opção primeiro.');
+      return;
+    }
+    verificadas[current] = true;
+    renderizarPergunta();
+    exibirFeedback(current);
+  }
+
+  function mudarPergunta(delta) {
+    const nova = current + delta;
+    if (nova < 0 || nova >= perguntas.length) return;
+    current = nova;
+    renderizarPergunta();
+    document.querySelector('.quiz-area').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function finalizarQuiz() {
+    if (quizFinalizado) return;
+    const total = perguntas.length;
+    const naoRespondidas = respostas.some((r, idx) => r === null && !verificadas[idx]);
+    if (naoRespondidas) {
+      if (!confirm('Ainda há perguntas não respondidas. Deseja finalizar mesmo assim?')) {
+        return;
+      }
+    }
+    quizFinalizado = true;
+    // Marca todas como verificadas se tiver resposta
+    for (let i = 0; i < total; i++) {
+      if (respostas[i] !== null) {
+        verificadas[i] = true;
+      }
+    }
+    // Calcula acertos
+    let acertos = 0;
+    for (let i = 0; i < total; i++) {
+      if (respostas[i] !== null && respostas[i] === perguntas[i].correta) acertos++;
+    }
     const porcentagem = Math.round((acertos / total) * 100);
 
-    let mensagemFinal = "";
-    if (porcentagem === 100) mensagemFinal = "🏆 Excelente! Você acertou tudo!";
-    else if (porcentagem >= 90)
-      mensagemFinal = "🔥 Muito bom! Você está quase perfeito.";
-    else if (porcentagem >= 70)
-      mensagemFinal = "👍 Bom desempenho! Continue revisando.";
-    else if (porcentagem >= 50)
-      mensagemFinal = "📚 Você está evoluindo. Estude mais um pouco.";
-    else
-      mensagemFinal = "💪 Não desista! Revise as questões e tente novamente.";
+    resultadoFinalContainer.innerHTML = `
+      <div class="resultado-final">
+        <h2>📊 Quiz finalizado!</h2>
+        <div class="nota">${acertos} / ${total}</div>
+        <p style="font-size:1.1rem; margin-bottom:6px;">${porcentagem}% de acerto</p>
+        <p style="color:#475569;">${porcentagem >= 70 ? '🎉 Parabéns!' : '💪 Continue praticando!'}</p>
+        <button class="btn" id="btnReiniciar" style="margin-top:12px; background:#2d4059; color:#fff;">🔄 Refazer esta matéria</button>
+      </div>
+    `;
+    document.getElementById('btnReiniciar')?.addEventListener('click', () => {
+      // Reinicia a mesma matéria
+      iniciarQuiz(materiaAtual);
+    });
 
-    document.getElementById("pergunta").textContent = "🏁 Quiz Finalizado!";
-    document.getElementById("opcoes").innerHTML = "";
-    document.getElementById("contador").textContent = "";
-
-    document.getElementById("resultado").style.display = "block";
-    document.getElementById("mensagem").textContent =
-      `🎯 ${porcentagem}% de aproveitamento`;
-    document.getElementById("mensagem").style.color = "#f5e56b";
-    document.getElementById("explicacao").innerHTML = `
-          <div class="estatisticas">
-            <div><div class="numero">${acertos}</div><div class="rotulo">✅ Acertos</div></div>
-            <div><div class="numero">${erros}</div><div class="rotulo">❌ Erros</div></div>
-            <div><div class="numero">${porcentagem}%</div><div class="rotulo">🎯 Aproveitamento</div></div>
-          </div>
-          <br>
-          <h3 style="text-align:center;color:#f5e56b;">${mensagemFinal}</h3>
-          <br>
-          <button onclick="location.reload()" style="width:100%;">🔄 Tentar Novamente</button>
-        `;
+    // Desabilita navegação e verificação
+    btnVerificar.disabled = true;
+    btnVerificar.textContent = '🔒 Finalizado';
+    btnProxima.disabled = true;
+    btnAnterior.disabled = true;
+    btnFinalizar.disabled = true;
+    btnFinalizar.textContent = '✅ Finalizado';
+    document.querySelectorAll('.opcao').forEach(el => el.classList.add('desabilitada'));
+    if (respostas[current] !== null) exibirFeedback(current);
   }
-}
 
-function voltarMenu() {
-  document.querySelector(".materias").style.display = "flex";
-  document.querySelector("h2").style.display = "block";
-  document.getElementById("quiz-area").style.display = "none";
-  document.getElementById("resultado").style.display = "none";
-}
+  function voltarParaMaterias() {
+    // Reseta estado
+    materiaAtual = null;
+    perguntas = [];
+    respostas = [];
+    verificadas = [];
+    current = 0;
+    quizFinalizado = false;
+    quizArea.classList.remove('ativo');
+    materiasSection.style.display = 'block';
+    btnVoltar.classList.add('hidden');
+    resultadoFinalContainer.innerHTML = '';
+    // Limpa resultado
+    resultadoDiv.classList.remove('visivel', 'correto', 'incorreto');
+  }
+
+  // =============================================================
+  //  EVENT LISTENERS
+  // =============================================================
+  btnVerificar.addEventListener('click', verificarResposta);
+  btnAnterior.addEventListener('click', () => mudarPergunta(-1));
+  btnProxima.addEventListener('click', () => mudarPergunta(1));
+  btnFinalizar.addEventListener('click', finalizarQuiz);
+  btnVoltar.addEventListener('click', voltarParaMaterias);
+
+  // =============================================================
+  //  INICIALIZAÇÃO
+  // =============================================================
+  renderizarMaterias();
